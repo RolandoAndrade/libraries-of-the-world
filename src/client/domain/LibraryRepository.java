@@ -1,9 +1,11 @@
 package client.domain;
 
-import shared.domain.Author;
 import shared.domain.Book;
 
+import java.util.List;
+
 public interface LibraryRepository {
-    Book getBook();
-    Author getAuthor();
+    Book getBook(String title);
+    List<Book> getAuthor(String name, String surname);
+    List<Book> getLibrary(String name);
 }

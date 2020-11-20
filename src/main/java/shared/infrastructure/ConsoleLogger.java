@@ -13,7 +13,7 @@ public class ConsoleLogger implements LoggerService {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
         df.setTimeZone(tz);
         String nowAsISO = df.format(new Date());
-        return nowAsISO + "  [" + type + "]  " + "  [" + context + "]  " + log + data;
+        return nowAsISO + "  [" + type + "]" + "  [" + context + "]  " + log + data;
     }
 
     @Override

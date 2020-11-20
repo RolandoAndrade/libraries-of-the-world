@@ -1,0 +1,35 @@
+<library>
+    <book>
+        <title>Domain-driven design</title>
+        <year>2003</year>
+        <price>20</price>
+        <quantity>5</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Eric</name>
+            <surname>Evans</surname>
+        </author>
+    </book>
+    <book>
+        <title>Implementing Domain-driven Design</title>
+        <year>2013</year>
+        <price>25</price>
+        <quantity>2</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Vaughn</name>
+            <surname>Vernon</surname>
+        </author>
+    </book>
+    <book>
+        <title>Domain-driven Design Distilled</title>
+        <year>2016</year>
+        <price>15</price>
+        <quantity>10</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Vaughn</name>
+            <surname>Vernon</surname>
+        </author>
+    </book>
+</library>

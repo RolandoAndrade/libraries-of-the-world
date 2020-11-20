@@ -1,7 +1,11 @@
 package shared.domain;
 
-public interface DataRepository {
-    Book getBook();
+import java.util.List;
 
-    Author getAuthor();
+public interface DataRepository {
+    Book getBook(String title);
+
+    List<Book> getAuthor(String name, String surname);
+
+    List<Book> getLibrary(String name);
 }

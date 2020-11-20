@@ -12,4 +12,12 @@ public class Author {
     public String getFullName() {
         return this.name + " " + this.surname;
     }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
+    }
 }

@@ -4,7 +4,6 @@ import shared.domain.Book;
 
 import java.util.List;
 
-public interface LibraryRepository {
+public interface RemoteLibraryRepository {
     <Book> Book request(String command, String arguments);
-    
 }

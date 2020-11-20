@@ -2,10 +2,11 @@ package client;
 
 import client.application.LibraryService;
 import client.domain.BookNotFoundException;
-import client.domain.LibraryRepository;
+import client.domain.RemoteLibraryRepository;
 import org.junit.Before;
 import org.junit.Test;
 import shared.domain.Book;
+import shared.domain.LibraryCommandSet;
 import shared.infrastructure.ConsoleLogger;
 
 import static org.junit.Assert.assertEquals;
@@ -14,13 +15,23 @@ import static org.mockito.Mockito.when;
 
 public class LibraryServiceTest {
 
-    private LibraryRepository repository;
+    private RemoteLibraryRepository repository;
     private LibraryService service;
 
     @Before
     public void setup() {
-        this.repository = mock(LibraryRepository.class);
-        this.service = new LibraryService(this.repository, new ConsoleLogger());
+        this.repository = mock(RemoteLibraryRepository.class);
+        this.service = new LibraryService(this.repository, new ConsoleLogger(), new LibraryCommandSet() {
+            @Override
+            public String getBookCommand() {
+                return "PEDIR LIBRO";
+            }
+
+            @Override
+            public String getAuthorCommand() {
+                return "PEDIR AUTOR";
+            }
+        });
     }
 
     @Test

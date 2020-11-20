@@ -1,7 +1,6 @@
 package client.application;
 
 import client.domain.BookNotFoundException;
-import client.domain.RemoteLibraryRepository;
 import client.domain.ThereAreNoBooksException;
 import shared.domain.RequestRepository;
 import shared.domain.*;
@@ -14,7 +13,6 @@ public class LibraryService {
     private LibraryCommandSet commandSet;
 
     public LibraryService(RequestRepository requestRepository,
-                          RemoteLibraryRepository remoteLibraryRepository,
                           LoggerService loggerService,
                           LibraryCommandSet commandSet) {
         this.requestRepository = requestRepository;
@@ -28,10 +26,11 @@ public class LibraryService {
      * If the book couldn't be reached, throws an exception
      */
     public Book getBook(String name) throws Exception {
-        this.loggerService.log("getBook: getting a book with name: ", "LibraryService", name);
+        this.loggerService.log("getBook: getting book ", "LibraryService", commandSet.getBookCommand() + " " + name);
 
         Book book = this.requestRepository.request(commandSet.getBookCommand(), name);
         if (book == null) {
+            this.loggerService.error("getBook: book not found: ", "LibraryService", name);
             throw new BookNotFoundException();
         }
 
@@ -45,11 +44,16 @@ public class LibraryService {
      * If there are no books with this author, should return an exception
      */
     public List<Book> getAuthor(String name, String surname) throws Exception {
-        this.loggerService.log("getAuthor: getting books of the author: ", "LibraryService", name + " " + surname);
+        this.loggerService.log("getAuthor: getting books ", "LibraryService",
+                commandSet.getAuthorCommand() + " " + name + " " + surname);
+
         List<Book> books = this.requestRepository.request(commandSet.getBookCommand(), name + " " + surname);
         if (books.size() == 0) {
+            this.loggerService.error("getAuthor: author has no books : ", "LibraryService", name + " " + surname);
             throw new ThereAreNoBooksException();
         }
+
+        this.loggerService.info("getAuthor: fetched " + books.size() + " books ", "LibraryService", "");
         return books;
     }
 
@@ -59,11 +63,15 @@ public class LibraryService {
      * If the book couldn't be reached, throws an exception
      */
     public Book getBook(String name, Library library) throws Exception {
-        this.loggerService.log("getBook: getting at library"  + library.getName() + " a book with name: ", "LibraryService", name);
-        Book book = this.requestRepository.request(commandSet.getBookCommand(), commandSet.getLibrary(), library.getName(), name);
+        this.loggerService.log("getBook: getting a book at library"  + library.getName(),
+                "LibraryService", commandSet.getZ39BookCommand() + " " + name);
+
+        Book book = this.requestRepository.request(commandSet.getZ39BookCommand(), commandSet.getLibrary(), library.getName(), name);
         if (book == null) {
             throw new BookNotFoundException();
         }
+
+        this.loggerService.info("getBook: book fetched from library " +library.getName()+": ", "LibraryService", book);
         return book;
     }
 }

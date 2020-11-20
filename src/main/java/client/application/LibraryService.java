@@ -2,7 +2,6 @@ package client.application;
 
 import client.domain.BookNotFoundException;
 import client.domain.ThereAreNoBooksException;
-import shared.domain.RequestRepository;
 import shared.domain.*;
 
 import java.util.List;
@@ -63,7 +62,7 @@ public class LibraryService {
      * If the book couldn't be reached, throws an exception
      */
     public Book getBook(String name, Library library) throws Exception {
-        this.loggerService.log("getBook: getting a book at library"  + library.getName(),
+        this.loggerService.log("getBook: getting a book at library" + library.getName(),
                 "LibraryService", commandSet.getZ39BookCommand() + " " + name);
 
         Book book = this.requestRepository.request(commandSet.getZ39BookCommand(), commandSet.getLibrary(), library.getName(), name);
@@ -71,7 +70,7 @@ public class LibraryService {
             throw new BookNotFoundException();
         }
 
-        this.loggerService.info("getBook: book fetched from library " +library.getName()+": ", "LibraryService", book);
+        this.loggerService.info("getBook: book fetched from library " + library.getName() + ": ", "LibraryService", book);
         return book;
     }
 }

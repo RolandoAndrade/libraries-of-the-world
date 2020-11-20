@@ -61,38 +61,23 @@ public class FileRepository implements DataRepository {
     }
 
     @Override
-    public Book getBook(String title) {
-        try {
-            Stream<Book> books = readFile().stream();
-            return books.filter(book -> title.toLowerCase().equals(book.getTitle().toLowerCase())).findAny().orElse(null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public Book getBook(String title) throws IOException, SAXException, ParserConfigurationException {
+        Stream<Book> books = readFile().stream();
+        return books.filter(book -> title.toLowerCase().equals(book.getTitle().toLowerCase())).findAny().orElse(null);
     }
 
     @Override
-    public List<Book> getAuthor(String name, String surname) {
-        try {
-            String fullName = name + " " + surname;
-            Stream<Book> books = readFile().stream();
-            return books.filter(book -> {
-                Author author = book.getAuthor();
-                return fullName.toLowerCase().equals(author.getFullName().toLowerCase());
-            }).collect(Collectors.toList());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
+    public List<Book> getAuthor(String name, String surname) throws IOException, SAXException, ParserConfigurationException {
+        String fullName = name + " " + surname;
+        Stream<Book> books = readFile().stream();
+        return books.filter(book -> {
+            Author author = book.getAuthor();
+            return fullName.toLowerCase().equals(author.getFullName().toLowerCase());
+        }).collect(Collectors.toList());
     }
 
     @Override
-    public List<Book> getLibrary(String name) {
-        try {
-            return readFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
+    public List<Book> getLibrary(String name) throws IOException, SAXException, ParserConfigurationException {
+        return readFile();
     }
 }

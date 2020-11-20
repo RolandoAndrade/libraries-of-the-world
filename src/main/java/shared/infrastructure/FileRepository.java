@@ -27,7 +27,7 @@ public class FileRepository implements DataRepository {
         this.filepath = filepath;
     }
 
-    private Book buildBook(Element node){
+    private Book buildBook(Element node) {
         String title = node.getElementsByTagName("title").item(0).getTextContent();
 
         Element authorNode = (Element) node.getElementsByTagName("author").item(0);
@@ -50,11 +50,9 @@ public class FileRepository implements DataRepository {
         //Get all books nodes
         NodeList nodeList = doc.getElementsByTagName("book");
 
-        for (int itr = 0; itr < nodeList.getLength(); itr++)
-        {
+        for (int itr = 0; itr < nodeList.getLength(); itr++) {
             Node node = nodeList.item(itr);
-            if (node.getNodeType() == Node.ELEMENT_NODE)
-            {
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
                 books.add(this.buildBook((Element) node));
             }
         }
@@ -66,8 +64,8 @@ public class FileRepository implements DataRepository {
     public Book getBook(String title) {
         try {
             Stream<Book> books = readFile().stream();
-            return books.filter(book->title.toLowerCase().equals(book.getTitle().toLowerCase())).findAny().orElse(null);
-        }catch (Exception e){
+            return books.filter(book -> title.toLowerCase().equals(book.getTitle().toLowerCase())).findAny().orElse(null);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -76,13 +74,13 @@ public class FileRepository implements DataRepository {
     @Override
     public List<Book> getAuthor(String name, String surname) {
         try {
-            String fullName = name +" "+surname;
+            String fullName = name + " " + surname;
             Stream<Book> books = readFile().stream();
-            return books.filter(book->{
+            return books.filter(book -> {
                 Author author = book.getAuthor();
                 return fullName.toLowerCase().equals(author.getFullName().toLowerCase());
             }).collect(Collectors.toList());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new ArrayList<>();
@@ -92,8 +90,7 @@ public class FileRepository implements DataRepository {
     public List<Book> getLibrary(String name) {
         try {
             return readFile();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new ArrayList<>();

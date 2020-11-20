@@ -8,9 +8,9 @@ import org.junit.Test;
 import shared.domain.Book;
 import shared.infrastructure.ConsoleLogger;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.junit.Assert.*;
 
 public class LibraryServiceTest {
 
@@ -18,7 +18,7 @@ public class LibraryServiceTest {
     private LibraryService service;
 
     @Before
-    public void setup(){
+    public void setup() {
         this.repository = mock(LibraryRepository.class);
         this.service = new LibraryService(this.repository, new ConsoleLogger());
     }
@@ -32,7 +32,7 @@ public class LibraryServiceTest {
 
     }
 
-    @Test(expected=BookNotFoundException.class)
+    @Test(expected = BookNotFoundException.class)
     public void getBookThatCannotBeFound() throws BookNotFoundException {
         String title = "Harry Potter";
         when(this.repository.getBook(title)).thenReturn(null);

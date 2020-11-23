@@ -1,7 +1,10 @@
 package shared.domain.components;
 
-public class Book {
-    private String title;
+import java.io.Serializable;
+
+public class Book implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private final String title;
     private Author author;
 
     public Book(String title) {

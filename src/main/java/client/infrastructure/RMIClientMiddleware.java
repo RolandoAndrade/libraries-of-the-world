@@ -2,11 +2,12 @@ package client.infrastructure;
 
 import client.domain.ClientMiddleware;
 import server.application.RemoteServerService;
+import server.domain.RemoteService;
 import shared.domain.components.Library;
 import shared.domain.logging.LoggerService;
 import shared.domain.requests.Command;
 
-import java.rmi.Naming;
+import java.rmi.registry.LocateRegistry;
 
 public class RMIClientMiddleware implements ClientMiddleware {
     private final Library library;
@@ -25,7 +26,8 @@ public class RMIClientMiddleware implements ClientMiddleware {
 
         this.loggerService.log("request: request " + z39Command + " " +args + " to " + remote,
                 "RMIClientMiddleware", "");
-        RemoteServerService remoteServerService = (RemoteServerService) Naming.lookup(remote);
+        RemoteService remoteServerService = (RemoteService) LocateRegistry.getRegistry(3000).lookup(remote);
+        System.out.println("Entro " + remoteServerService);
         return remoteServerService.request(z39Command, this.library.toString(), args);
     }
 }

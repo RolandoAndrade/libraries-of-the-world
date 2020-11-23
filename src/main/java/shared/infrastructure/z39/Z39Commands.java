@@ -1,6 +1,6 @@
 package shared.infrastructure.z39;
 
-import shared.domain.Z39CommandSet;
+import shared.domain.requests.Z39CommandSet;
 
 public class Z39Commands implements Z39CommandSet {
     @Override

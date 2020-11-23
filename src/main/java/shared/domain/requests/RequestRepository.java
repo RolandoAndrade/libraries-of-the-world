@@ -1,4 +1,4 @@
-package shared.domain;
+package shared.domain.requests;
 
 public interface RequestRepository {
 

@@ -1,4 +1,6 @@
-package shared.domain;
+package shared.domain.database;
+
+import shared.domain.components.Book;
 
 import java.util.List;
 

@@ -2,7 +2,11 @@ package client.application;
 
 import client.domain.BookNotFoundException;
 import client.domain.ThereAreNoBooksException;
-import shared.domain.*;
+import shared.domain.components.Book;
+import shared.domain.components.Library;
+import shared.domain.logging.LoggerService;
+import shared.domain.requests.LibraryCommandSet;
+import shared.domain.requests.RequestRepository;
 
 import java.util.List;
 
@@ -16,7 +20,8 @@ public class LibraryService {
                           LoggerService loggerService) {
         this.requestRepository = requestRepository;
         this.loggerService = loggerService;
-        this.commandSet = commandSet;;
+        this.commandSet = commandSet;
+        ;
     }
 
     /**

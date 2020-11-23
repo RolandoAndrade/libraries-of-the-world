@@ -1,6 +1,6 @@
 package server.domain;
 
-import shared.domain.Book;
+import shared.domain.components.Book;
 
 import java.util.List;
 

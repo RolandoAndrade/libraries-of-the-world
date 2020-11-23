@@ -1,4 +1,4 @@
-package shared.domain;
+package shared.domain.components;
 
 public class Author {
     private String name;

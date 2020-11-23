@@ -1,7 +1,7 @@
 package shared.infrastructure.firstlibrary;
 
-import shared.domain.LibraryCommandSet;
-import shared.domain.Z39CommandSet;
+import shared.domain.requests.LibraryCommandSet;
+import shared.domain.requests.Z39CommandSet;
 
 public class FirstLibraryCommandSet extends LibraryCommandSet {
     public FirstLibraryCommandSet(Z39CommandSet z39CommandSet) {

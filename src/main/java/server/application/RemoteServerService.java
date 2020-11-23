@@ -1,9 +1,9 @@
 package server.application;
 
-import shared.domain.InvalidCommandException;
-import shared.domain.LibraryCommandSet;
-import shared.domain.LoggerService;
-import shared.domain.RequestRepository;
+import shared.domain.logging.LoggerService;
+import shared.domain.requests.InvalidCommandException;
+import shared.domain.requests.LibraryCommandSet;
+import shared.domain.requests.RequestRepository;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

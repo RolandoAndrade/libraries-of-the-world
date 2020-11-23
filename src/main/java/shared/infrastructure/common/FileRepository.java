@@ -1,13 +1,13 @@
-package shared.infrastructure;
+package shared.infrastructure.common;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import shared.domain.Author;
-import shared.domain.Book;
-import shared.domain.DataRepository;
+import shared.domain.components.Author;
+import shared.domain.components.Book;
+import shared.domain.database.DataRepository;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

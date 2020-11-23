@@ -1,6 +1,6 @@
-package shared.infrastructure;
+package shared.infrastructure.common;
 
-import shared.domain.LoggerService;
+import shared.domain.logging.LoggerService;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

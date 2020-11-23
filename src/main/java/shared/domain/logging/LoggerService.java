@@ -1,4 +1,4 @@
-package shared.domain;
+package shared.domain.logging;
 
 public interface LoggerService {
     void info(String log, String context, Object data);

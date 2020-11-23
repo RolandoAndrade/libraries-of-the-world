@@ -4,8 +4,9 @@ import client.application.LibraryService;
 import client.domain.BookNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
-import shared.domain.*;
-import shared.infrastructure.ConsoleLogger;
+import shared.domain.components.Book;
+import shared.domain.requests.RequestRepository;
+import shared.infrastructure.common.ConsoleLogger;
 import shared.infrastructure.firstlibrary.FirstLibraryCommandSet;
 import shared.infrastructure.z39.Z39Commands;
 

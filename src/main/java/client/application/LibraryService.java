@@ -1,27 +1,33 @@
 package client.application;
 
 import client.domain.BookNotFoundException;
+import client.domain.ClientMiddleware;
 import client.domain.ThereAreNoBooksException;
 import shared.domain.components.Book;
 import shared.domain.components.Library;
+import shared.domain.database.DataRepository;
 import shared.domain.logging.LoggerService;
+import shared.domain.requests.CommandSet;
 import shared.domain.requests.LibraryCommandSet;
 import shared.domain.requests.RequestRepository;
 
 import java.util.List;
 
 public class LibraryService {
-    private final RequestRepository requestRepository;
-    private final LoggerService loggerService;
-    private final LibraryCommandSet commandSet;
 
-    public LibraryService(RequestRepository requestRepository,
-                          LibraryCommandSet commandSet,
+    private final DataRepository repository;
+    private final ClientMiddleware clientMiddleware;
+    private final LoggerService loggerService;
+    private final CommandSet commandSet;
+
+    public LibraryService(DataRepository repository,
+                          ClientMiddleware clientMiddleware,
+                          CommandSet commandSet,
                           LoggerService loggerService) {
-        this.requestRepository = requestRepository;
+        this.repository = repository;
+        this.clientMiddleware = clientMiddleware;
         this.loggerService = loggerService;
         this.commandSet = commandSet;
-        ;
     }
 
     /**
@@ -29,12 +35,12 @@ public class LibraryService {
      * Given a name of a book, system should search the book and retrieve it.
      * If the book couldn't be reached, throws an exception
      */
-    public Book getBook(String name) throws Exception {
-        this.loggerService.log("getBook: getting book ", "LibraryService", commandSet.getBookCommand() + " " + name);
+    public Book getBook(String title) throws Exception {
+        this.loggerService.log("getBook: getting book ", "LibraryService", commandSet.getBookCommand().getCommand() + " " + title);
 
-        Book book = this.requestRepository.request(commandSet.getBookCommand(), name);
+        Book book = this.repository.getBook(title);
         if (book == null) {
-            this.loggerService.error("getBook: book not found: ", "LibraryService", name);
+            this.loggerService.error("getBook: book not found: ", "LibraryService", title);
             throw new BookNotFoundException();
         }
 
@@ -48,12 +54,14 @@ public class LibraryService {
      * If there are no books with this author, should return an exception
      */
     public List<Book> getAuthor(String name, String surname) throws Exception {
-        this.loggerService.log("getAuthor: getting books ", "LibraryService",
-                commandSet.getAuthorCommand() + " " + name + " " + surname);
+        String fullName = name + " " + surname;
 
-        List<Book> books = this.requestRepository.request(commandSet.getBookCommand(), name + " " + surname);
+        this.loggerService.log("getAuthor: getting books ", "LibraryService",
+                commandSet.getAuthorCommand().getCommand() + " " + fullName);
+
+        List<Book> books = this.repository.getAuthor(fullName);
         if (books.size() == 0) {
-            this.loggerService.error("getAuthor: author has no books : ", "LibraryService", name + " " + surname);
+            this.loggerService.error("getAuthor: author has no books : ", "LibraryService", fullName);
             throw new ThereAreNoBooksException();
         }
 
@@ -66,11 +74,11 @@ public class LibraryService {
      * Given a name of a book, system should search the book and retrieve it.
      * If the book couldn't be reached, throws an exception
      */
-    public Book getBook(String name, Library library) throws Exception {
+    public Book getBook(String title, Library library) throws Exception {
         this.loggerService.log("getBook: getting a book at library" + library.getName(),
-                "LibraryService", commandSet.getZ39GetBookCommand() + " " + name);
+                "LibraryService", commandSet.getBookCommand().getCommand() + " " + title);
 
-        Book book = this.requestRepository.request(commandSet.getBookCommand(), commandSet.getLibrary(), library.getName(), name);
+        Book book = this.clientMiddleware.request(commandSet.getBookCommand(), library.getAddress(), title);
         if (book == null) {
             throw new BookNotFoundException();
         }

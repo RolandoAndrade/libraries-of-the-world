@@ -16,7 +16,7 @@ public class RemoteServerService extends UnicastRemoteObject implements ServerSe
     private final RequestRepository requestRepository;
 
 
-    public RemoteServerService(RequestRepository requestRepository, LoggerService loggerService, LibraryCommandSet commandSet) throws RemoteException {
+    public RemoteServerService(RequestRepository requestRepository, LibraryCommandSet commandSet, LoggerService loggerService) throws RemoteException {
         super();
         this.requestRepository = requestRepository;
         this.loggerService = loggerService;
@@ -30,7 +30,7 @@ public class RemoteServerService extends UnicastRemoteObject implements ServerSe
             translatedCommand = commandSet.translateCommand(command);
         } catch (InvalidCommandException e) {
             this.loggerService.error(e.getMessage(), "RemoteServerService", "");
-            return null;
+            throw e;
         }
 
         return this.requestRepository.request(translatedCommand, args);

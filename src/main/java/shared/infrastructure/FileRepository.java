@@ -67,8 +67,7 @@ public class FileRepository implements DataRepository {
     }
 
     @Override
-    public List<Book> getAuthor(String name, String surname) throws IOException, SAXException, ParserConfigurationException {
-        String fullName = name + " " + surname;
+    public List<Book> getAuthor(String fullName) throws IOException, SAXException, ParserConfigurationException {
         Stream<Book> books = readFile().stream();
         return books.filter(book -> {
             Author author = book.getAuthor();

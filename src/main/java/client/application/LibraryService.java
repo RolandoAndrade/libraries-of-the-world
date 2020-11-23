@@ -12,8 +12,8 @@ public class LibraryService {
     private final LibraryCommandSet commandSet;
 
     public LibraryService(RequestRepository requestRepository,
-                          LoggerService loggerService,
-                          LibraryCommandSet commandSet) {
+                          LibraryCommandSet commandSet,
+                          LoggerService loggerService) {
         this.requestRepository = requestRepository;
         this.loggerService = loggerService;
         this.commandSet = commandSet;;

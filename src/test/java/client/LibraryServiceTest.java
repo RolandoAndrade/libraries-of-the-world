@@ -7,6 +7,7 @@ import org.junit.Test;
 import shared.domain.*;
 import shared.infrastructure.ConsoleLogger;
 import shared.infrastructure.firstlibrary.FirstLibraryCommandSet;
+import shared.infrastructure.z39.Z39Commands;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
@@ -21,18 +22,7 @@ public class LibraryServiceTest {
     @Before
     public void setup() {
         this.repository = mock(RequestRepository.class);
-        Z39CommandSet commandSet = new Z39CommandSet() {
-            @Override
-            public String getBookCommand() {
-                return null;
-            }
-
-            @Override
-            public String getAuthorCommand() {
-                return null;
-            }
-        }
-        this.service = new LibraryService(this.repository, new ConsoleLogger(), new FirstLibraryCommandSet(commandSet));
+        this.service = new LibraryService(this.repository, new FirstLibraryCommandSet(new Z39Commands()), new ConsoleLogger());
     }
 
     @Test

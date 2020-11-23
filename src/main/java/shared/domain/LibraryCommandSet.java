@@ -1,13 +1,30 @@
 package shared.domain;
 
-public interface LibraryCommandSet {
-    String getLibrary();
+public abstract class LibraryCommandSet implements Z39CommandSet {
 
-    String getBookCommand();
+    private final Z39CommandSet z39CommandSet;
 
-    String getAuthorCommand();
+    protected LibraryCommandSet(Z39CommandSet z39CommandSet){
+        this.z39CommandSet = z39CommandSet;
+    }
 
-    String getZ39BookCommand();
+    public String getZ39GetBookCommand(){
+        return z39CommandSet.getBookCommand();
+    }
 
-    String getZ39AuthorCommand();
+    public String getZ39GetAuthorCommand(){
+        return z39CommandSet.getAuthorCommand();
+    }
+
+    public abstract String getLibrary();
+
+    public String translateCommand(String command) throws InvalidCommandException {
+        if(command.equals(getBookCommand())){
+            return z39CommandSet.getBookCommand();
+        }
+        else if(command.equals(getAuthorCommand())){
+            return z39CommandSet.getAuthorCommand();
+        }
+        throw new InvalidCommandException();
+    }
 }

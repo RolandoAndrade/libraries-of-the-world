@@ -7,16 +7,16 @@ import shared.domain.*;
 import java.util.List;
 
 public class LibraryService {
-    private RequestRepository requestRepository;
-    private LoggerService loggerService;
-    private LibraryCommandSet commandSet;
+    private final RequestRepository requestRepository;
+    private final LoggerService loggerService;
+    private final LibraryCommandSet commandSet;
 
     public LibraryService(RequestRepository requestRepository,
                           LoggerService loggerService,
                           LibraryCommandSet commandSet) {
         this.requestRepository = requestRepository;
         this.loggerService = loggerService;
-        this.commandSet = commandSet;
+        this.commandSet = commandSet;;
     }
 
     /**
@@ -63,9 +63,9 @@ public class LibraryService {
      */
     public Book getBook(String name, Library library) throws Exception {
         this.loggerService.log("getBook: getting a book at library" + library.getName(),
-                "LibraryService", commandSet.getZ39BookCommand() + " " + name);
+                "LibraryService", commandSet.getZ39GetBookCommand() + " " + name);
 
-        Book book = this.requestRepository.request(commandSet.getZ39BookCommand(), commandSet.getLibrary(), library.getName(), name);
+        Book book = this.requestRepository.request(commandSet.getBookCommand(), commandSet.getLibrary(), library.getName(), name);
         if (book == null) {
             throw new BookNotFoundException();
         }

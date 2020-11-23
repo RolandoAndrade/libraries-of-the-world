@@ -4,7 +4,7 @@ import shared.domain.Book;
 
 import java.util.List;
 
-public interface ServerRepository {
+public interface ServerController {
     Book getBook(String title, String originLibraryName);
 
     List<Book> getAuthor(String name, String surname, String originLibraryName);

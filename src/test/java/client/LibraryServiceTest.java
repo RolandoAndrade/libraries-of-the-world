@@ -4,10 +4,9 @@ import client.application.LibraryService;
 import client.domain.BookNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
-import shared.domain.Book;
-import shared.domain.LibraryCommandSet;
-import shared.domain.RequestRepository;
+import shared.domain.*;
 import shared.infrastructure.ConsoleLogger;
+import shared.infrastructure.firstlibrary.FirstLibraryCommandSet;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
@@ -22,32 +21,18 @@ public class LibraryServiceTest {
     @Before
     public void setup() {
         this.repository = mock(RequestRepository.class);
-        this.service = new LibraryService(this.repository, new ConsoleLogger(), new LibraryCommandSet() {
-            @Override
-            public String getLibrary() {
-                return "MOCK LIBRARY";
-            }
-
+        Z39CommandSet commandSet = new Z39CommandSet() {
             @Override
             public String getBookCommand() {
-                return "GET BOOK";
+                return null;
             }
 
             @Override
             public String getAuthorCommand() {
-                return "GET AUTHOR";
+                return null;
             }
-
-            @Override
-            public String getZ39BookCommand() {
-                return "GETZ39 BOOK";
-            }
-
-            @Override
-            public String getZ39AuthorCommand() {
-                return "GETZ39 AUTHOR";
-            }
-        });
+        }
+        this.service = new LibraryService(this.repository, new ConsoleLogger(), new FirstLibraryCommandSet(commandSet));
     }
 
     @Test

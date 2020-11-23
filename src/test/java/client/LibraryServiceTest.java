@@ -2,6 +2,7 @@ package client;
 
 import client.application.LibraryService;
 import client.domain.BookNotFoundException;
+import client.domain.ThereAreNoBooksException;
 import org.junit.Before;
 import org.junit.Test;
 import shared.domain.components.Book;
@@ -9,6 +10,9 @@ import shared.domain.requests.RequestRepository;
 import shared.infrastructure.common.ConsoleLogger;
 import shared.infrastructure.firstlibrary.FirstLibraryCommandSet;
 import shared.infrastructure.z39.Z39Commands;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
@@ -44,6 +48,22 @@ public class LibraryServiceTest {
 
 
     @Test
-    public void getAuthor() {
+    public void getAuthor() throws Exception {
+        String name = "Vaughn";
+        String surname = "Vernon";
+        when(this.repository.request(anyString(), anyString())).thenReturn(new ArrayList<Book>(
+                Arrays.asList(new Book("Implementing Domain Driven Design"),
+                        new Book("Domain Driven Design Distilled"))
+        ));
+        List<Book> books = this.service.getAuthor(name, surname);
+        assertEquals(books.size(), 2);
+    }
+
+    @Test(expected = ThereAreNoBooksException.class)
+    public void getThereAreNoBooks() throws Exception {
+        String name = "Jason";
+        String surname = "Bourne";
+        when(this.repository.request(anyString(), anyString())).thenReturn(new ArrayList<Book>());
+        List<Book> books = this.service.getAuthor(name, surname);
     }
 }

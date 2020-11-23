@@ -37,7 +37,7 @@ public class FileRepository implements DataRepository {
         return new Book(title, new Author(authorName, authorSurname));
     }
 
-    private synchronized List<Book> readFile() throws ParserConfigurationException, IOException, SAXException {
+    private List<Book> readFile() throws ParserConfigurationException, IOException, SAXException {
         File file = new File(filepath);
         List<Book> books = new ArrayList<Book>();
 

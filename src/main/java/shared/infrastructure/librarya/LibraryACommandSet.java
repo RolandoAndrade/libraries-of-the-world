@@ -2,6 +2,7 @@ package shared.infrastructure.librarya;
 
 import shared.domain.requests.Command;
 import shared.domain.requests.CommandSet;
+import shared.domain.requests.InvalidCommandException;
 import shared.domain.requests.Z39CommandSet;
 
 public class LibraryACommandSet implements CommandSet {

@@ -15,7 +15,7 @@ public class Main {
             RemoteServerService remoteServerService = new RemoteServerService(new FileRepository("/home/rolandoandrade/Descargas/libraries-of-the-world/src/main/resources/templates/library-template.xml"),
                     new LibraryACommandSet(new Z39Commands()), new ConsoleLogger());
             Registry registry = LocateRegistry.createRegistry(3000);
-            registry.rebind("rmi://127.0.0.1:3000/Books", remoteServerService);
+            registry.rebind("rmi://127.0.0.1:3000/books", remoteServerService);
         } catch (Exception e) {
             e.printStackTrace();
         }

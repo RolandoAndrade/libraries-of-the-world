@@ -35,16 +35,24 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
                     commandSet.getBookCommand().getCommand() + " " +args);
 
              book = (Book) this.dataRepository.getBook(args);
-
-            this.loggerService.info("makeRequest: book found ", "RemoteServerService", book);
-
+             if(book != null){
+                 this.loggerService.info("makeRequest: book found", "RemoteServerService", book);
+             }
+             else {
+                 this.loggerService.warn("makeRequest: book not found", "RemoteServerService", "");
+             }
         } else if(commandSet.getAuthorCommand().getGeneralCommand().equals(command)){
             this.loggerService.info("makeRequest: the translated command is ", "RemoteServerService",
                     commandSet.getBookCommand().getCommand() + " " +args);
 
             book = (Book) this.dataRepository.getAuthor(args);
 
-            this.loggerService.info("makeRequest: books found ", "RemoteServerService", book);
+            if(book != null){
+                this.loggerService.info("makeRequest: books found", "RemoteServerService", book);
+            }
+            else {
+                this.loggerService.warn("makeRequest: books not found", "RemoteServerService", "");
+            }
         }
         else {
             this.loggerService.error("makeRequest: invalid command ", "RemoteServerService",

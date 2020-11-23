@@ -3,9 +3,9 @@ package shared.domain.components;
 public class Library {
 
     private final String name;
-    private final String address;
+    private final Address address;
 
-    public Library(String name, String address) {
+    public Library(String name, Address address) {
         this.name = name;
         this.address = address;
     }
@@ -14,7 +14,7 @@ public class Library {
         return name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 

@@ -20,6 +20,10 @@ public class RMIClientMiddleware implements ClientMiddleware {
         this.loggerService = loggerService;
     }
 
+
+    /**
+     * Translates the Z39 response into Library Language
+     * */
     private Response translateResponse(Response response, Command returnCommand) throws InvalidCommandException {
         this.loggerService.log("translateResponse: translating " + response.getCommand(),
                 "RMIClientMiddleware", "");
@@ -37,6 +41,12 @@ public class RMIClientMiddleware implements ClientMiddleware {
         throw new InvalidCommandException();
     }
 
+
+    /**
+     * Translate the command to Z39 language then
+     * request to remote repository and finally request the translation
+     * of the Z39 response into Library Language
+     */
     @Override
     public Response request(Command command, Address remote, String args, Command returnCommand) throws Exception {
         this.loggerService.log("request: translating " + command.getCommand() + " into " + command.getGeneralCommand(),

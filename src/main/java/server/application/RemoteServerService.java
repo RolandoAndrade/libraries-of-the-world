@@ -29,7 +29,9 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
         this.loggerService = loggerService;
     }
 
-
+    /**
+     * Makes the query and translate the response into Z39 language
+     * */
     private Response getBookResponse(String title) throws Exception {
         this.loggerService.log("getBookResponse: the translated command is ", "RemoteServerService",
                 commandSet.getBookCommand().getCommand() + " " + title);
@@ -46,6 +48,10 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
 
     }
 
+
+    /**
+     * Makes the query and translate the response into Z39 language
+     * */
     private Response getAuthorResponse(String author) throws Exception {
         this.loggerService.log("getAuthorResponse: the translated command is ", "RemoteServerService",
                 commandSet.getAuthorCommand().getCommand() + " " + author);
@@ -60,7 +66,10 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
         return new AuthorResponse(books, commandSet.returnAuthorCommand().getGeneralCommand());
     }
 
-
+    /**
+     * Translates the Z39 command into Library Language and makes the request to the repository.
+     * Then translate the library response into Z39 response
+     * */
     private Response makeRequest(String command, String args) throws Exception {
         this.loggerService.log("makeRequest: translating z39 command " + command, "RemoteServerService", "");
 
@@ -76,6 +85,10 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
         throw new InvalidCommandException();
     }
 
+
+    /**
+     * Listen request of the clients
+     * */
     public synchronized Response request(String command, String origin, String args) throws Exception {
         /*while (isRequestInProgress){
             this.loggerService.info("request: there is a request in progress, please wait", "RemoteServerService", "");

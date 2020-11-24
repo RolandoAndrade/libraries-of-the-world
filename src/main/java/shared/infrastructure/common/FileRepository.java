@@ -74,9 +74,4 @@ public class FileRepository implements DataRepository {
             return fullName.toLowerCase().equals(author.getFullName().toLowerCase());
         }).collect(Collectors.toList());
     }
-
-    @Override
-    public List<Book> getLibrary(String name) throws IOException, SAXException, ParserConfigurationException {
-        return readFile();
-    }
 }

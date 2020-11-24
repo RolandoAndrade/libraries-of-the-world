@@ -7,7 +7,7 @@ import java.util.List;
 
 public class AuthorResponse implements Response {
     private final List<Book> books;
-    private final String command;
+    private String command;
 
     public AuthorResponse(List<Book> books, String command){
         this.books = books;
@@ -25,6 +25,11 @@ public class AuthorResponse implements Response {
     }
 
     @Override
+    public void setCommand(String command) {
+        this.command = command;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Book b : books)
@@ -34,8 +39,9 @@ public class AuthorResponse implements Response {
         }
 
         return "Response{" +
-                "books=[" + sb.toString() +
-                "], command='" + command + '\'' +
+                "command='" + command + '\''+
+                ", books=[" + sb.toString() +
+                "]" +
                 '}';
     }
 }

@@ -8,6 +8,7 @@ import shared.domain.components.Library;
 import shared.domain.database.DataRepository;
 import shared.domain.logging.LoggerService;
 import shared.domain.requests.CommandSet;
+import shared.domain.requests.Response;
 
 import java.util.List;
 
@@ -72,16 +73,16 @@ public class LibraryService {
      * Given a name of a book, system should search the book and retrieve it.
      * If the book couldn't be reached, throws an exception
      */
-    public Book getBook(String title, Library library) throws Exception {
+    public Response getBook(String title, Library library) throws Exception {
         this.loggerService.log("getBook: getting a book at library" + library.getName(),
                 "LibraryService", commandSet.getBookCommand().getCommand() + " " + title);
 
-        Book book = this.clientMiddleware.request(commandSet.getBookCommand(), library.getAddress(), title);
-        if (book == null) {
+        Response response = this.clientMiddleware.request(commandSet.getBookCommand(), library.getAddress(), title, commandSet.returnBookCommand());
+        if (response.getBody() == null) {
             throw new BookNotFoundException();
         }
 
-        this.loggerService.info("getBook: book fetched from library " + library.getName() + ": ", "LibraryService", book);
-        return book;
+        this.loggerService.info("getBook: book fetched from library " + library.getName() + ": ", "LibraryService", response);
+        return response;
     }
 }

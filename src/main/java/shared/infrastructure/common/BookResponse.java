@@ -26,8 +26,8 @@ public class BookResponse implements Response {
     @Override
     public String toString() {
         return "Response{" +
+                "command='" + command + '\'' +
                 "book=" + book +
-                ", command='" + command + '\'' +
                 '}';
     }
 }

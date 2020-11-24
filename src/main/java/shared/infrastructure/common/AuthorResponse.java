@@ -9,7 +9,7 @@ public class AuthorResponse implements Response {
     private final List<Book> books;
     private String command;
 
-    public AuthorResponse(List<Book> books, String command){
+    public AuthorResponse(List<Book> books, String command) {
         this.books = books;
         this.command = command;
     }
@@ -32,16 +32,11 @@ public class AuthorResponse implements Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Book b : books)
-        {
+        for (Book b : books) {
             sb.append(b.toString());
             sb.append(", ");
         }
 
-        return "Response{" +
-                "command='" + command + '\''+
-                ", books=[" + sb.toString() +
-                "]" +
-                '}';
+        return command + "[" + sb.toString() + "]";
     }
 }

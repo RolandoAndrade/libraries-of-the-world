@@ -7,7 +7,7 @@ import shared.domain.requests.Z39CommandSet;
 public class LibraryACommandSet implements CommandSet {
     private final Z39CommandSet commandSet;
 
-    public LibraryACommandSet(Z39CommandSet commandSet){
+    public LibraryACommandSet(Z39CommandSet commandSet) {
         this.commandSet = commandSet;
     }
 

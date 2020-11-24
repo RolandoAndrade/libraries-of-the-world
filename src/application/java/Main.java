@@ -12,7 +12,7 @@ public class Main {
         LibraryService libraryService = new LibraryService(new FileRepository("/home/rolandoandrade/Descargas/libraries-of-the-world/src/main/resources/templates/library-template.xml"),
                 new RMIClientMiddleware(new Library("Library A",
                         new Address("127.0.0.1", 3001)),
-                        new ConsoleLogger()),new LibraryACommandSet(new Z39Commands()),new ConsoleLogger());
+                        new ConsoleLogger()), new LibraryACommandSet(new Z39Commands()), new ConsoleLogger());
 
         try {
             libraryService.getBook("Implementing Domain-driven Design", new Library("LibraryA", new Address("127.0.0.1", 3000)));

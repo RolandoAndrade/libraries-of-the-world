@@ -1,7 +1,6 @@
 package client.infrastructure;
 
 import client.domain.ClientMiddleware;
-import server.application.RemoteServerService;
 import server.domain.RemoteService;
 import shared.domain.components.Address;
 import shared.domain.components.Library;
@@ -16,7 +15,7 @@ public class RMIClientMiddleware implements ClientMiddleware {
     private final Library library;
     private final LoggerService loggerService;
 
-    public RMIClientMiddleware(Library library, LoggerService loggerService){
+    public RMIClientMiddleware(Library library, LoggerService loggerService) {
         this.library = library;
         this.loggerService = loggerService;
     }
@@ -25,7 +24,7 @@ public class RMIClientMiddleware implements ClientMiddleware {
         this.loggerService.log("translateResponse: translating " + response.getCommand(),
                 "RMIClientMiddleware", "");
 
-        if(response.getCommand().equals(returnCommand.getGeneralCommand())){
+        if (response.getCommand().equals(returnCommand.getGeneralCommand())) {
 
             this.loggerService.info("translateResponse>: the translated response command is ", "RMIClientMiddleware",
                     returnCommand.getCommand());
@@ -44,7 +43,7 @@ public class RMIClientMiddleware implements ClientMiddleware {
                 "RMIClientMiddleware", "");
         String z39Command = command.getGeneralCommand();
 
-        this.loggerService.log("request: request " + z39Command + " " +args + " to " + remote,
+        this.loggerService.log("request: request " + z39Command + " " + args + " to " + remote,
                 "RMIClientMiddleware", "");
 
         RemoteService remoteServerService = (RemoteService) LocateRegistry.getRegistry(remote.getPort()).lookup(remote.getAddress());

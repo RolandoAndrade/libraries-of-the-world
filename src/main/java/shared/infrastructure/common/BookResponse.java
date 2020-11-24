@@ -6,9 +6,9 @@ import shared.domain.requests.Response;
 public class BookResponse implements Response {
 
     private final Book book;
-    private final String command;
+    private String command;
 
-    public BookResponse(Book book, String command){
+    public BookResponse(Book book, String command) {
         this.book = book;
         this.command = command;
     }
@@ -24,10 +24,12 @@ public class BookResponse implements Response {
     }
 
     @Override
+    public void setCommand(String command) {
+        this.command = command;
+    }
+
+    @Override
     public String toString() {
-        return "Response{" +
-                "command='" + command + '\'' +
-                "book=" + book +
-                '}';
+        return command + " " + book;
     }
 }

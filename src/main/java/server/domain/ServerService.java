@@ -1,5 +1,7 @@
 package server.domain;
 
+import shared.domain.requests.Response;
+
 public interface ServerService {
-    <Book> Book request(String command, String origin, String args) throws Exception;
+    Response request(String command, String origin, String args) throws Exception;
 }

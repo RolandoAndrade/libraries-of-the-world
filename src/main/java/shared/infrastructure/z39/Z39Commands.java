@@ -12,4 +12,14 @@ public class Z39Commands implements Z39CommandSet {
     public String getAuthorCommand() {
         return "Get Author";
     }
+
+    @Override
+    public String returnBookCommand() {
+        return "Title";
+    }
+
+    @Override
+    public String returnAuthorCommand() {
+        return "Title";
+    }
 }

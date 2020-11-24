@@ -2,7 +2,6 @@ package shared.infrastructure.librarya;
 
 import shared.domain.requests.Command;
 import shared.domain.requests.CommandSet;
-import shared.domain.requests.InvalidCommandException;
 import shared.domain.requests.Z39CommandSet;
 
 public class LibraryACommandSet implements CommandSet {
@@ -38,6 +37,36 @@ public class LibraryACommandSet implements CommandSet {
             @Override
             public String getGeneralCommand() {
                 return commandSet.getAuthorCommand();
+            }
+        };
+    }
+
+    @Override
+    public Command returnBookCommand() {
+        return new Command() {
+            @Override
+            public String getCommand() {
+                return "Libro";
+            }
+
+            @Override
+            public String getGeneralCommand() {
+                return commandSet.returnBookCommand();
+            }
+        };
+    }
+
+    @Override
+    public Command returnAuthorCommand() {
+        return new Command() {
+            @Override
+            public String getCommand() {
+                return "Libro";
+            }
+
+            @Override
+            public String getGeneralCommand() {
+                return commandSet.returnAuthorCommand();
             }
         };
     }

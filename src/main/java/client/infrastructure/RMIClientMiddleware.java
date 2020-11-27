@@ -9,6 +9,7 @@ import shared.domain.requests.Command;
 import shared.domain.requests.InvalidCommandException;
 import shared.domain.requests.Response;
 
+import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
 public class RMIClientMiddleware implements ClientMiddleware {
@@ -48,7 +49,7 @@ public class RMIClientMiddleware implements ClientMiddleware {
      * of the Z39 response into Library Language
      */
     @Override
-    public Response request(Command command, Address remote, String args, Command returnCommand) throws Exception {
+    public Response request(Command command, Library remote, String args, Command returnCommand) throws Exception {
         this.loggerService.log("request: translating " + command.getCommand() + " into " + command.getGeneralCommand(),
                 "RMIClientMiddleware", "");
         String z39Command = command.getGeneralCommand();
@@ -56,7 +57,7 @@ public class RMIClientMiddleware implements ClientMiddleware {
         this.loggerService.log("request: request " + z39Command + " " + args + " to " + remote,
                 "RMIClientMiddleware", "");
 
-        RemoteService remoteServerService = (RemoteService) LocateRegistry.getRegistry(remote.getPort()).lookup("LibraryA");
+        RemoteService remoteServerService = (RemoteService) Naming.lookup(remote.getAddress().getAddress());
         Response response = remoteServerService.request(z39Command, this.library.toString(), args);
 
         this.loggerService.info("request: received response ",

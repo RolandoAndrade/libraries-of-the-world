@@ -77,7 +77,7 @@ public class LibraryService {
         this.loggerService.log("getBook: getting a book at library" + library.getName(),
                 "LibraryService", commandSet.getBookCommand().getCommand() + " " + title);
 
-        Response response = this.clientMiddleware.request(commandSet.getBookCommand(), library.getAddress(), title, commandSet.returnBookCommand());
+        Response response = this.clientMiddleware.request(commandSet.getBookCommand(), library, title, commandSet.returnBookCommand());
         if (response.getBody() == null) {
             throw new BookNotFoundException();
         }

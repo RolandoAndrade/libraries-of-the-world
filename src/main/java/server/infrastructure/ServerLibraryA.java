@@ -20,8 +20,9 @@ public class ServerLibraryA {
                     new LibraryACommandSet(new Z39Commands()), logger);
             Registry registry = LocateRegistry.createRegistry(3000);
             String route = new IPInterfaceManager().getRoute(3000);
+            System.setProperty( "java.rmi.server.hostname", "127.0.0.1");
             logger.log("started server at ", "ServerLibraryA", route);
-            Naming.rebind(route, remoteServerService);
+            registry.rebind(route, remoteServerService);
         } catch (Exception e) {
             e.printStackTrace();
         }

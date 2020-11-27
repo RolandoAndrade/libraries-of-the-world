@@ -9,8 +9,10 @@ import shared.domain.requests.Command;
 import shared.domain.requests.InvalidCommandException;
 import shared.domain.requests.Response;
 
+import java.net.InetAddress;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class RMIClientMiddleware implements ClientMiddleware {
     private final Library library;
@@ -56,8 +58,9 @@ public class RMIClientMiddleware implements ClientMiddleware {
 
         this.loggerService.log("request: request " + z39Command + " " + args + " to " + remote,
                 "RMIClientMiddleware", "");
-
-        RemoteService remoteServerService = (RemoteService) Naming.lookup(remote.getAddress().getAddress());
+        Registry registry = LocateRegistry.getRegistry(remote.getAddress().getHost(), remote.getAddress().getPort());
+        RemoteService remoteServerService = (RemoteService) registry.lookup(remote.getAddress().getAddress());
+        System.out.println(remoteServerService + "  "+ remote.getAddress().getHost() + " " + InetAddress.getLocalHost().getHostAddress());
         Response response = remoteServerService.request(z39Command, this.library.toString(), args);
 
         this.loggerService.info("request: received response ",

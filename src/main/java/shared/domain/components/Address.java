@@ -18,6 +18,10 @@ public class Address {
         return port;
     }
 
+    public String getHost(){
+        return url;
+    }
+
     @Override
     public String toString() {
         return "Address{" +

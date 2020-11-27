@@ -56,7 +56,7 @@ public class RMIClientMiddleware implements ClientMiddleware {
         this.loggerService.log("request: request " + z39Command + " " + args + " to " + remote,
                 "RMIClientMiddleware", "");
 
-        RemoteService remoteServerService = (RemoteService) LocateRegistry.getRegistry(remote.getPort()).lookup(remote.getAddress());
+        RemoteService remoteServerService = (RemoteService) LocateRegistry.getRegistry(remote.getPort()).lookup("LibraryA");
         Response response = remoteServerService.request(z39Command, this.library.toString(), args);
 
         this.loggerService.info("request: received response ",

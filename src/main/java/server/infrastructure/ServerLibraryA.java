@@ -10,14 +10,13 @@ import shared.infrastructure.z39.Z39Commands;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class Main {
+public class ServerLibraryA {
     public static void main(String[] args) {
         try {
             RemoteServerService remoteServerService = new RemoteServerService(new FileRepository("/home/rolandoandrade/IdeaProjects/libraries-of-the-world/src/main/resources/templates/library-template.xml"),
                     new LibraryACommandSet(new Z39Commands()), new ConsoleLogger());
             Registry registry = LocateRegistry.createRegistry(3000);
-            String route = new IPInterfaceManager().getRoute(3000);
-            registry.rebind(route, remoteServerService);
+            registry.rebind("LibraryA", remoteServerService);
         } catch (Exception e) {
             e.printStackTrace();
         }

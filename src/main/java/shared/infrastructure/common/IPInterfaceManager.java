@@ -6,12 +6,20 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 
 public class IPInterfaceManager implements IPManager {
     @Override
     public String getRoute(int port) throws SocketException {
-        String ip = "";
+        List<String> ips = listHosts();
+        return "rmi://"+ips.get(ips.size()-1)+":"+port+"/books";
+    }
+
+    @Override
+    public List<String> listHosts() throws SocketException {
+        List<String> list = new ArrayList<>();
         Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
         while (interfaces.hasMoreElements()) {
             NetworkInterface iface = interfaces.nextElement();
@@ -25,11 +33,9 @@ public class IPInterfaceManager implements IPManager {
 
                 // *EDIT*
                 if (addr instanceof Inet6Address) continue;
-
-                ip = addr.getHostAddress();
-                System.out.println(iface.getDisplayName() + " " + ip);
+                list.add(addr.getHostAddress());
             }
         }
-        return "rmi://"+ip+":"+port+"/books";
+        return list;
     }
 }

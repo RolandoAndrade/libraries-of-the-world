@@ -14,8 +14,7 @@ public class Main {
                         new Address("127.0.0.1", 3001)),
                         new ConsoleLogger()), new LibraryACommandSet(new Z39Commands()), new ConsoleLogger());
         try {
-            System.setProperty( "java.rmi.server.hostname", "127.0.0.1" ) ;
-            libraryService.getBook("Implementing Domain-driven Design", new Library("LibraryA", new Address("192.168.1.118", 3000)));
+            libraryService.getBook("Implementing Domain-driven Design", new Library("LibraryA", new Address("192.168.1.105", 3000)));
             libraryService.getAuthor("Vaughn", "Vernon");
         } catch (Exception e) {
             e.printStackTrace();

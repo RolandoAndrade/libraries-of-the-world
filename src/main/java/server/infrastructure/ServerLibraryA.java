@@ -16,21 +16,10 @@ import java.util.List;
 
 public class ServerLibraryA {
     public static void main(String[] args) {
-        LoggerService logger = new ConsoleLogger();
         try {
-            int port = 3000;
-            if(args.length > 0){
-                port = Math.max(Integer.parseInt(args[0]), 2000);
-            }
-            IPManager ipManager = new IPInterfaceManager();
-            List<String> hosts = ipManager.listHosts();
-            String route = ipManager.getRoute(port);
-            System.setProperty( "java.rmi.server.hostname", hosts.get(hosts.size()-1));
-            RemoteServerService remoteServerService = new RemoteServerService(new FileRepository("src/main/resources/templates/library-template.xml"),
-                    new LibraryACommandSet(new Z39Commands()), logger);
-            Registry registry = LocateRegistry.createRegistry(port);
-            logger.log("started server at ", "ServerLibraryA", route);
-            registry.rebind(route, remoteServerService);
+            LoggerService loggerService = new ConsoleLogger();
+            GenericServer server = new GenericServer(loggerService,
+                    new LibraryACommandSet(new Z39Commands()), args);
         }
         catch (Exception e) {
             e.printStackTrace();

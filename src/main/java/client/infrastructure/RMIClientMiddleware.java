@@ -60,7 +60,6 @@ public class RMIClientMiddleware implements ClientMiddleware {
                 "RMIClientMiddleware", "");
         Registry registry = LocateRegistry.getRegistry(remote.getAddress().getHost(), remote.getAddress().getPort());
         RemoteService remoteServerService = (RemoteService) registry.lookup(remote.getAddress().getAddress());
-        System.out.println(remoteServerService + "  "+ remote.getAddress().getHost() + " " + InetAddress.getLocalHost().getHostAddress());
         Response response = remoteServerService.request(z39Command, this.library.toString(), args);
 
         this.loggerService.info("request: received response ",

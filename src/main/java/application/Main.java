@@ -6,8 +6,8 @@ import shared.domain.components.Address;
 import shared.domain.components.Library;
 import shared.infrastructure.common.ConsoleLogger;
 import shared.infrastructure.common.FileRepository;
-import shared.infrastructure.librarya.LibraryACommandSet;
-import shared.infrastructure.z39.Z39Commands;
+import shared.infrastructure.commands.LibraryACommandSet;
+import shared.infrastructure.commands.Z39Commands;
 
 public class Main {
     public static void main(String[] args) {

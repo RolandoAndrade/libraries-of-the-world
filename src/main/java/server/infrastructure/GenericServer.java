@@ -36,12 +36,14 @@ public class GenericServer {
             selectedInterface = selectInterface(hosts.size());
         }
 
+
+
         String route = ipManager.getRoute(port);
         System.setProperty( "java.rmi.server.hostname", hosts.get(selectedInterface));
         RemoteServerService remoteServerService = new RemoteServerService(new FileRepository(filePath),
                 libraryCommandSet, logger);
         Registry registry = LocateRegistry.createRegistry(port);
-        logger.log("started server at ", "ServerLibraryA", route);
+        logger.log("started server at ", "GenericServer", route);
         registry.rebind(route, remoteServerService);
     }
 

@@ -19,13 +19,13 @@ public class ServerLibraryA {
         try {
             IPManager ipManager = new IPInterfaceManager();
             List<String> hosts = ipManager.listHosts();
-            String route = ipManager.getRoute(3000);
+            String route = ipManager.getRoute(4500);
             System.setProperty( "java.rmi.server.hostname", hosts.get(hosts.size()-1));
 
             LoggerService logger = new ConsoleLogger();
             RemoteServerService remoteServerService = new RemoteServerService(new FileRepository("src/main/resources/templates/library-template.xml"),
                     new LibraryACommandSet(new Z39Commands()), logger);
-            Registry registry = LocateRegistry.createRegistry(3000);
+            Registry registry = LocateRegistry.createRegistry(4500);
             logger.log("started server at ", "ServerLibraryA", route);
             registry.rebind(route, remoteServerService);
         } catch (Exception e) {

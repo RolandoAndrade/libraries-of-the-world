@@ -1,112 +1,112 @@
 <library>
     <book>
-        <title>Domain-driven design</title>
-        <year>2003</year>
+        <title>Mastering the Art of French Cooking</title>
+        <year>1961</year>
+        <price>86</price>
+        <quantity>100</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Julia</name>
+            <surname>Child</surname>
+        </author>
+    </book>
+    <book>
+        <title>Cooking and food</title>
+        <year>1984</year>
+        <price>45</price>
+        <quantity>250</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Harold</name>
+            <surname>McGee</surname>
+        </author>
+    </book>
+    <book>
+        <title>1080 cooking recipes</title>
+        <year>1972</year>
         <price>20</price>
-        <quantity>5</quantity>
-        <genre>Software development</genre>
+        <quantity>70</quantity>
+        <genre>Recipe book</genre>
         <author>
-            <name>Eric</name>
-            <surname>Evans</surname>
+            <name>Simone</name>
+            <surname>Ortega</surname>
         </author>
     </book>
     <book>
-        <title>Implementing Domain-driven Design</title>
-        <year>2013</year>
-        <price>25</price>
-        <quantity>2</quantity>
-        <genre>Software development</genre>
-        <author>
-            <name>Vaughn</name>
-            <surname>Vernon</surname>
-        </author>
-    </book>
-    <book>
-        <title>Domain-driven Design Distilled</title>
-        <year>2016</year>
-        <price>15</price>
-        <quantity>10</quantity>
-        <genre>Software development</genre>
-        <author>
-            <name>Vaughn</name>
-            <surname>Vernon</surname>
-        </author>
-    </book>
-    <book>
-        <title>Clean code</title>
-        <year>2018</year>
-        <price>25</price>
-        <quantity>30</quantity>
-        <genre>Software development</genre>
-        <author>
-            <name>Robert</name>
-            <surname>Martin</surname>
-        </author>
-    </book>
-    <book>
-        <title>The Pragmatic Programmer</title>
-        <year>1999</year>
-        <price>12</price>
-        <quantity>18</quantity>
-        <genre>Software development</genre>
-        <author>
-            <name>Andy</name>
-            <surname>Hunt</surname>
-        </author>
-    </book>
-    <book>
-        <title>Soft Skills: The Software Developer's Life Manual</title>
-        <year>2014</year>
-        <price>40</price>
+        <title>Larousse Gastronomique</title>
+        <year>1938</year>
+        <price>29</price>
         <quantity>50</quantity>
-        <genre>Software development</genre>
+        <genre>Recipe book</genre>
         <author>
-            <name>Jhon</name>
-            <surname>Sonmez</surname>
+            <name>Proper</name>
+            <surname>Montagne</surname>
         </author>
     </book>
     <book>
-        <title>Code Complete</title>
-        <year>1993</year>
-        <price>32</price>
-        <quantity>23</quantity>
-        <genre>Software development</genre>
+        <title>Modernist Cuisine</title>
+        <year>2011</year>
+        <price>100</price>
+        <quantity>900</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Nathan</name>
+            <surname>Myhrvold</surname>
+        </author>
+    </book>
+    <book>
+        <title>Confectionery and pastry</title>
+        <year>2003</year>
+        <price>35</price>
+        <quantity>55</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Marquesa</name>
+            <surname>de Parabere</surname>
+        </author>
+    </book>
+    <book>
+        <title>The Complete Bocuse</title>
+        <year>2012</year>
+        <price>41</price>
+        <quantity>540</quantity>
+        <genre>Recipe book</genre>
         <author>
             <name>Steve</name>
             <surname>McConnel</surname>
         </author>
     </book>    
     <book>
-        <title>Design Patterns</title>
-        <year>1994</year>
-        <price>24</price>
-        <quantity>60</quantity>
-        <genre>Software development</genre>
+        <title>The Silver Spoon</title>
+        <year>2005</year>
+        <price>35</price>
+        <quantity>130</quantity>
+        <genre>Recipe book</genre>
         <author>
-            <name>Erich</name>
-            <surname>Gamma</surname>
+            <name>Giovanna</name>
+            <surname>Camozzi</surname>
         </author>
     </book>
     <book>
-        <title>Head First Design Patterns</title>
-        <year>2004</year>
-        <price>50</price>
-        <quantity>200</quantity>
-        <genre>Software development</genre>
-        <author>
-            <name>Elisabeth</name>
-            <surname>Freeman</surname>
-        </author>
-    </book>
-    <book>
-        <title>Code Simplicity: The Fundamentals of Software</title>
+        <title>Modernist Cuisine at Home</title>
         <year>2012</year>
-        <price>18</price>
-        <quantity>350</quantity>
-        <genre>Software development</genre>
+        <price>45</price>
+        <quantity>500</quantity>
+        <genre>Recipe book</genre>
         <author>
-            <name>Max</name>
-            <surname>Kannat</surname>
+            <name>Maxime</name>
+            <surname>Billet</surname>
+        </author>
+    </book>
+    <book>
+        <title>Carvalho's recipes</title>
+        <year>1990</year>
+        <price>33</price>
+        <quantity>650</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Manuel V.</name>
+            <surname>Montalban</surname>
         </author>
     </book>
 </library>

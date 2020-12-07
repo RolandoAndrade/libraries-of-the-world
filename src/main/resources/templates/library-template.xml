@@ -32,4 +32,81 @@
             <surname>Vernon</surname>
         </author>
     </book>
+    <book>
+        <title>Clean code</title>
+        <year>2018</year>
+        <price>25</price>
+        <quantity>30</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Robert</name>
+            <surname>Martin</surname>
+        </author>
+    </book>
+    <book>
+        <title>The Pragmatic Programmer</title>
+        <year>1999</year>
+        <price>12</price>
+        <quantity>18</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Andy</name>
+            <surname>Hunt</surname>
+        </author>
+    </book>
+    <book>
+        <title>Soft Skills: The Software Developer's Life Manual</title>
+        <year>2014</year>
+        <price>40</price>
+        <quantity>50</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Jhon</name>
+            <surname>Sonmez</surname>
+        </author>
+    </book>
+    <book>
+        <title>Code Complete</title>
+        <year>1993</year>
+        <price>32</price>
+        <quantity>23</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Steve</name>
+            <surname>McConnel</surname>
+        </author>
+    </book>    
+    <book>
+        <title>Design Patterns</title>
+        <year>1994</year>
+        <price>24</price>
+        <quantity>60</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Erich</name>
+            <surname>Gamma</surname>
+        </author>
+    </book>
+    <book>
+        <title>Head First Design Patterns</title>
+        <year>2004</year>
+        <price>50</price>
+        <quantity>200</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Elisabeth</name>
+            <surname>Freeman</surname>
+        </author>
+    </book>
+    <book>
+        <title>Code Simplicity: The Fundamentals of Software</title>
+        <year>2012</year>
+        <price>18</price>
+        <quantity>350</quantity>
+        <genre>Software development</genre>
+        <author>
+            <name>Max</name>
+            <surname>Kannat</surname>
+        </author>
+    </book>
 </library>

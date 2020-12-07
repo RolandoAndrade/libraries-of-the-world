@@ -1,0 +1,112 @@
+<library>
+    <book>
+        <title>Mastering the Art of French Cooking</title>
+        <year>1961</year>
+        <price>86</price>
+        <quantity>100</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Julia</name>
+            <surname>Child</surname>
+        </author>
+    </book>
+    <book>
+        <title>Cooking and food</title>
+        <year>1984</year>
+        <price>45</price>
+        <quantity>250</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Harold</name>
+            <surname>McGee</surname>
+        </author>
+    </book>
+    <book>
+        <title>1080 cooking recipes</title>
+        <year>1972</year>
+        <price>20</price>
+        <quantity>70</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Simone</name>
+            <surname>Ortega</surname>
+        </author>
+    </book>
+    <book>
+        <title>Larousse Gastronomique</title>
+        <year>1938</year>
+        <price>29</price>
+        <quantity>50</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Proper</name>
+            <surname>Montagne</surname>
+        </author>
+    </book>
+    <book>
+        <title>Modernist Cuisine</title>
+        <year>2011</year>
+        <price>100</price>
+        <quantity>900</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Nathan</name>
+            <surname>Myhrvold</surname>
+        </author>
+    </book>
+    <book>
+        <title>Confectionery and pastry</title>
+        <year>2003</year>
+        <price>35</price>
+        <quantity>55</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Marquesa</name>
+            <surname>de Parabere</surname>
+        </author>
+    </book>
+    <book>
+        <title>The Complete Bocuse</title>
+        <year>2012</year>
+        <price>41</price>
+        <quantity>540</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Steve</name>
+            <surname>McConnel</surname>
+        </author>
+    </book>    
+    <book>
+        <title>The Silver Spoon</title>
+        <year>2005</year>
+        <price>35</price>
+        <quantity>130</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Giovanna</name>
+            <surname>Camozzi</surname>
+        </author>
+    </book>
+    <book>
+        <title>Modernist Cuisine at Home</title>
+        <year>2012</year>
+        <price>45</price>
+        <quantity>500</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Maxime</name>
+            <surname>Billet</surname>
+        </author>
+    </book>
+    <book>
+        <title>Carvalho's recipes</title>
+        <year>1990</year>
+        <price>33</price>
+        <quantity>650</quantity>
+        <genre>Recipe book</genre>
+        <author>
+            <name>Manuel V.</name>
+            <surname>Montalban</surname>
+        </author>
+    </book>
+</library>

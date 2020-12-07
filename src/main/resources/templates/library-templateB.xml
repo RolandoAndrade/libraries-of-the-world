@@ -1,0 +1,112 @@
+<library>
+    <book>
+        <title>One hundred years of loneliness</title>
+        <year>1967</year>
+        <price>35</price>
+        <quantity>65</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Gabriel G.</name>
+            <surname>Marquez</surname>
+        </author>
+    </book>
+    <book>
+        <title>Pride and prejudice</title>
+        <year>1813</year>
+        <price>70</price>
+        <quantity>600</quantity>
+        <genre> Novelt</genre>
+        <author>
+            <name>Jane</name>
+            <surname>Austen</surname>
+        </author>
+    </book>
+    <book>
+        <title>Wuthering Heights</title>
+        <year>1847</year>
+        <price>50</price>
+        <quantity>800</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Emily</name>
+            <surname>Bronte</surname>
+        </author>
+    </book>
+    <book>
+        <title>Metamorphosis</title>
+        <year>1912</year>
+        <price>45</price>
+        <quantity>300</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Franz</name>
+            <surname>Kafka</surname>
+        </author>
+    </book>
+    <book>
+        <title>Crime and Punishment</title>
+        <year>1866</year>
+        <price>8</price>
+        <quantity>1500</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Fiódor</name>
+            <surname>Dostoyevski</surname>
+        </author>
+    </book>
+    <book>
+        <title>The Picture of Dorian Gray</title>
+        <year>1890</year>
+        <price>15</price>
+        <quantity>300</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Oscar</name>
+            <surname>Wilde</surname>
+        </author>
+    </book>
+    <book>
+        <title>Don Quijote of La Mancha</title>
+        <year>1605</year>
+        <price>55</price>
+        <quantity>350</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Miguel</name>
+            <surname>de Cervantes</surname>
+        </author>
+    </book>    
+    <book>
+        <title>Madame Bovary</title>
+        <year>1856</year>
+        <price>95</price>
+        <quantity>50</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Gustave</name>
+            <surname>Flaubert</surname>
+        </author>
+    </book>
+    <book>
+        <title>The Miserables</title>
+        <year>1862</year>
+        <price>23</price>
+        <quantity>400</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Victor</name>
+            <surname>Hugo</surname>
+        </author>
+    </book>
+    <book>
+        <title>Frankenstein</title>
+        <year>1823</year>
+        <price>33</price>
+        <quantity>750</quantity>
+        <genre>Novel</genre>
+        <author>
+            <name>Mary</name>
+            <surname>Shelley</surname>
+        </author>
+    </book>
+</library>

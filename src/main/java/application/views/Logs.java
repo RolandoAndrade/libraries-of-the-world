@@ -82,7 +82,7 @@ public class Logs extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/views/public/books.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/public/books.png"))); // NOI18N
         jLabel8.setText("jLabel8");
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 102));
@@ -112,7 +112,7 @@ public class Logs extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel25.setText("Ver logs");
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/views/public/log.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/public/log.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -138,7 +138,7 @@ public class Logs extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setText("Buscar");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/views/public/book.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/public/book.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -165,7 +165,7 @@ public class Logs extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Salir");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/views/public/salir.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/public/salir.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

@@ -1,11 +1,13 @@
+package application;
+
 import client.application.LibraryService;
 import client.infrastructure.RMIClientMiddleware;
 import shared.domain.components.Address;
 import shared.domain.components.Library;
 import shared.infrastructure.common.ConsoleLogger;
 import shared.infrastructure.common.FileRepository;
-import shared.infrastructure.librarya.LibraryACommandSet;
-import shared.infrastructure.z39.Z39Commands;
+import shared.infrastructure.commands.LibraryACommandSet;
+import shared.infrastructure.commands.Z39Commands;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +16,7 @@ public class Main {
                         new Address("127.0.0.1", 3001)),
                         new ConsoleLogger()), new LibraryACommandSet(new Z39Commands()), new ConsoleLogger());
         try {
-            libraryService.getBook("Implementing Domain-driven Design", new Library("LibraryA", new Address("192.168.1.105", 3000)));
+            libraryService.getBook("Implementing Domain-driven Design", new Library("LibraryA", new Address("192.168.1.101", 3000)));
             libraryService.getAuthor("Vaughn", "Vernon");
         } catch (Exception e) {
             e.printStackTrace();

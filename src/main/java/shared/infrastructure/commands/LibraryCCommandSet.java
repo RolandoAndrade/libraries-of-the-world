@@ -1,13 +1,13 @@
-package shared.infrastructure.librarya;
+package shared.infrastructure.commands;
 
 import shared.domain.requests.Command;
 import shared.domain.requests.CommandSet;
 import shared.domain.requests.Z39CommandSet;
 
-public class LibraryACommandSet implements CommandSet {
+public class LibraryCCommandSet implements CommandSet {
     private final Z39CommandSet commandSet;
 
-    public LibraryACommandSet(Z39CommandSet commandSet) {
+    public LibraryCCommandSet(Z39CommandSet commandSet) {
         this.commandSet = commandSet;
     }
 
@@ -16,7 +16,7 @@ public class LibraryACommandSet implements CommandSet {
         return new Command() {
             @Override
             public String getCommand() {
-                return "Pedir Libro";
+                return "Encontrar Vol";
             }
 
             @Override
@@ -31,7 +31,7 @@ public class LibraryACommandSet implements CommandSet {
         return new Command() {
             @Override
             public String getCommand() {
-                return "Pedir Autor";
+                return "Encontrar Autor";
             }
 
             @Override
@@ -46,7 +46,7 @@ public class LibraryACommandSet implements CommandSet {
         return new Command() {
             @Override
             public String getCommand() {
-                return "Libro";
+                return "Vol";
             }
 
             @Override
@@ -61,7 +61,7 @@ public class LibraryACommandSet implements CommandSet {
         return new Command() {
             @Override
             public String getCommand() {
-                return "Libro";
+                return "Vol";
             }
 
             @Override

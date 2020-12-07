@@ -1,4 +1,4 @@
-package shared.infrastructure.z39;
+package shared.infrastructure.commands;
 
 import shared.domain.requests.Z39CommandSet;
 

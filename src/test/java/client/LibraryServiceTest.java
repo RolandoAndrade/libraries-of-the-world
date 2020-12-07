@@ -10,8 +10,8 @@ import shared.domain.components.Book;
 import shared.domain.database.DataRepository;
 import shared.domain.requests.CommandSet;
 import shared.infrastructure.common.ConsoleLogger;
-import shared.infrastructure.librarya.LibraryACommandSet;
-import shared.infrastructure.z39.Z39Commands;
+import shared.infrastructure.commands.LibraryACommandSet;
+import shared.infrastructure.commands.Z39Commands;
 
 import java.util.ArrayList;
 import java.util.Arrays;

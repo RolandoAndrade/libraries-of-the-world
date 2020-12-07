@@ -33,7 +33,7 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
      * Makes the query and translate the response into Z39 language
      * */
     private Response getBookResponse(String title) throws Exception {
-        this.loggerService.log("getBookResponse: the translated command is ", "RemoteServerService",
+        this.loggerService.info("getBookResponse: the translated command is ", "RemoteServerService",
                 commandSet.getBookCommand().getCommand() + " " + title);
 
 
@@ -53,7 +53,7 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
      * Makes the query and translate the response into Z39 language
      * */
     private Response getAuthorResponse(String author) throws Exception {
-        this.loggerService.log("getAuthorResponse: the translated command is ", "RemoteServerService",
+        this.loggerService.info("getAuthorResponse: the translated command is ", "RemoteServerService",
                 commandSet.getAuthorCommand().getCommand() + " " + author);
 
         this.loggerService.log("getAuthorResponse: getting books ", "RemoteServerService", "");

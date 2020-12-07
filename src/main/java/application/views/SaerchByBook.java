@@ -1,9 +1,9 @@
 /*
  * ANGEL
- * -(´u´)-
+ * -(ï¿½uï¿½)-
  * SUCASAS
  */
-package client.interfaces;
+package application.views;
 /**
  *
  * @author Usuario
@@ -91,7 +91,7 @@ public class SaerchByBook extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/interfaces/public/books.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/views/public/books.png"))); // NOI18N
         jLabel8.setText("jLabel8");
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
@@ -99,7 +99,7 @@ public class SaerchByBook extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel9.setText("Buscar");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/interfaces/public/book.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/views/public/book.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -125,7 +125,7 @@ public class SaerchByBook extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setText("Salir");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/interfaces/public/salir.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/views/public/salir.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -151,7 +151,7 @@ public class SaerchByBook extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel25.setText("Ver logs");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/client/interfaces/public/log.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/application/views/public/log.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -293,13 +293,13 @@ public class SaerchByBook extends javax.swing.JFrame {
         jLabel34.setText("Ingrese la cantidad disponible");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel6.setText("Ingrese el año de publicacion");
+        jLabel6.setText("Ingrese el aï¿½o de publicacion");
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel12.setText("Ingrese el precio del libro");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel3.setText("Año de publicación:");
+        jLabel3.setText("Aï¿½o de publicaciï¿½n:");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Nombre del Libro:");

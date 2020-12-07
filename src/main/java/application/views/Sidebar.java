@@ -14,6 +14,8 @@ public class Sidebar extends JPanel {
         this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 3, new Color(230, 230, 230)));
         drawLogo();
         this.add(new SidebarButton("\uf02d", "Buscar libros"));
+        this.add(new SidebarButton("\uf15c", "Ver logs"));
+        this.add(new SidebarButton("\uf060", "Salir"));
     }
 
     private void drawLogo(){

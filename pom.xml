@@ -44,6 +44,11 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
     </repositories>
     
     <dependencies>
@@ -61,6 +66,21 @@
             <groupId>io.github.vincenzopalazzo</groupId>
             <artifactId>material-ui-swing</artifactId>
             <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>KControls</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>RSButtonCustom</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>RojeruSan.full_9.6</artifactId>
+            <version>SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

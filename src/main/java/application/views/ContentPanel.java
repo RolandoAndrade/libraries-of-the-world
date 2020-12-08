@@ -1,5 +1,7 @@
 package application.views;
 
+import application.views.booksfinder.FindBooksView;
+
 import javax.swing.*;
 import java.awt.*;
 

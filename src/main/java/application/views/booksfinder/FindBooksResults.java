@@ -1,6 +1,6 @@
 package application.views.booksfinder;
 
-import application.views.GUITheme;
+import application.views.shared.GUITheme;
 import shared.domain.components.Book;
 
 import javax.swing.*;

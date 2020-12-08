@@ -1,4 +1,4 @@
-package application.views;
+package application.views.shared;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

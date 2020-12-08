@@ -1,6 +1,6 @@
 package application.views.booksfinder;
 
-import application.views.SectionHeader;
+import application.views.shared.SectionHeader;
 
 import javax.swing.*;
 import java.awt.*;

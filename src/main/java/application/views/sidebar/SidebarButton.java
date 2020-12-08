@@ -1,16 +1,13 @@
 package application.views.sidebar;
 
-import application.views.FontAwesomeIcon;
+import application.views.shared.FontAwesomeIcon;
 import application.views.Frame;
-import application.views.GUITheme;
-import application.views.Utilities;
+import application.views.shared.GUITheme;
 import mdlaf.animation.MaterialUIMovement;
 import mdlaf.utils.MaterialColors;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
 
 public class SidebarButton extends JButton {
     private static int index = 0;

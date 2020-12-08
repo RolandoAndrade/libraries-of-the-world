@@ -1,8 +1,6 @@
 package application.views.booksfinder;
 
-import application.views.FontAwesomeIcon;
-import application.views.Frame;
-import application.views.GUITheme;
+import application.views.shared.GUITheme;
 import mdlaf.animation.MaterialUIMovement;
 import mdlaf.utils.MaterialColors;
 

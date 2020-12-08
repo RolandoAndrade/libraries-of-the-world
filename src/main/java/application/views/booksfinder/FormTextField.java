@@ -1,7 +1,7 @@
 package application.views.booksfinder;
 
 
-import application.views.GUITheme;
+import application.views.shared.GUITheme;
 import mdlaf.utils.MaterialColors;
 
 import javax.swing.*;

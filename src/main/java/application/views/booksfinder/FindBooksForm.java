@@ -1,7 +1,4 @@
 package application.views.booksfinder;
-
-import application.views.CustomTextField;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;

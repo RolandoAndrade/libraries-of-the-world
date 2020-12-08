@@ -2,6 +2,7 @@ package application.views.booksfinder;
 
 import application.views.CustomButton;
 import application.views.CustomTextField;
+import mdlaf.MaterialLookAndFeel;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -44,8 +45,8 @@ public class FindBooksForm extends JPanel {
         c.gridx = 0;
         c.gridy = 1;
         c.gridwidth = 1;
-        this.form.add(new CustomButton("Buscar libro"), c);
+        this.form.add(new JButton("Buscar libro"), c);
         c.gridx = 2;
-        this.form.add(new CustomButton("Buscar autor"), c);
+        this.form.add(new JButton("Buscar autor"), c);
     }
 }

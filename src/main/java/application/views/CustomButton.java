@@ -1,36 +1,35 @@
 package application.views;
 
+import mdlaf.animation.MaterialUIMovement;
+import mdlaf.components.button.MaterialButtonUI;
+import mdlaf.utils.MaterialColors;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 
-public class CustomButton extends JButton {
-    public CustomButton(String title){
-        this.setText(title);
-        this.setFocusPainted(false);
-        this.setBackground(new Color(3, 169, 244));
-        this.setForeground(Color.WHITE);
-        this.setBorder(new EmptyBorder(10,10,10,10));
-        this.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(Color.WHITE, 5),
-                BorderFactory.createLineBorder(new Color(3, 169, 244), 10)));
-        this.setFont(new Font("SansSerif.plain", Font.PLAIN, 12));
+public class CustomButton extends MaterialButtonUI {
 
-        this.addMouseListener(new MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(Color.WHITE, 5),
-                        BorderFactory.createLineBorder(new Color(0, 179, 255), 10)));
-                setBackground(new Color(0, 179, 255));
-            }
+    //The propriety order inside the method installUI is important
+    //because some propriety should be override
+    @Override
+    public void installUI(JComponent c) {
+        super.mouseHoverEnabled = false;
+        super.installUI(c);
+        super.mouseHoverEnabled = true;
+        super.colorMouseHoverNormalButton = MaterialColors.BLUE_300;
+        super.background = MaterialColors.BLUE_400;
+        c.setBackground(super.background);
 
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                setBackground(new Color(3, 169, 244));
-                setBorder(BorderFactory.createCompoundBorder(
-                        BorderFactory.createLineBorder(Color.WHITE, 5),
-                        BorderFactory.createLineBorder(new Color(3, 169, 244), 10)));
-            }
-        });
+        if (super.mouseHoverEnabled) {
+            c.addMouseListener(
+                    MaterialUIMovement.getMovement(c, this.colorMouseHoverNormalButton)
+            );
+        }
+        //If you want use this style also for Default button
+        // super.defaultBackground = MaterialColors.PURPLE_700;
+        //super.colorMouseHoverDefaultButton = MaterialColors.PURPLE_500;
+        super.borderEnabled = false;
     }
 }

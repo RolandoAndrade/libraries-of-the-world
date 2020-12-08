@@ -3,6 +3,7 @@ package application;
 import application.views.Frame;
 import client.application.LibraryService;
 import client.infrastructure.RMIClientMiddleware;
+import mdlaf.MaterialLookAndFeel;
 import shared.domain.components.Address;
 import shared.domain.components.Library;
 import shared.infrastructure.common.ConsoleLogger;
@@ -14,6 +15,14 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
+        try{
+            UIManager.setLookAndFeel (new MaterialLookAndFeel());
+            UIManager.put("Button[border].enable", false);
+            UIManager.put("Button[border].toAll", false);
+        }
+        catch (Exception e){
+
+        }
         JFrame window = new Frame("Librería A");
 
         /*LibraryService libraryService = new LibraryService(new FileRepository("src/main/resources/templates/library-template.xml"),

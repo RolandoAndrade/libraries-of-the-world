@@ -1,9 +1,15 @@
 package application.views.shared;
 
+import com.google.gson.Gson;
+import shared.domain.components.LibraryConfiguration;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Utilities {
 
@@ -43,5 +49,23 @@ public class Utilities {
             System.out.println(fileName + " = null");
             return null;
         }
+    }
+
+    public static LibraryConfiguration getConfiguration() {
+        Gson gson = new Gson();
+
+        Reader reader = null;
+        LibraryConfiguration configuration = null;
+        try {
+            reader = Files.newBufferedReader(Paths.get("src/main/resources/config/libraries.json"));
+
+            configuration = gson.fromJson(reader,LibraryConfiguration.class);
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return configuration;
     }
 }

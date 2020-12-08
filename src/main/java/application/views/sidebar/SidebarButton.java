@@ -1,4 +1,7 @@
-package application.views;
+package application.views.sidebar;
+
+import application.views.FontAwesomeIcon;
+import application.views.Frame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +18,7 @@ public class SidebarButton extends JButton {
         this.setForeground(Color.WHITE);
         this.setFont(new Font("SansSerif.plain", Font.PLAIN, 14));
 
-        this.setBounds(0,200 + 50*(index++),Frame.FRAME_WIDTH/4 - 3,50);
+        this.setBounds(0,200 + 50*(index++), Frame.FRAME_WIDTH/4 - 3,50);
 
         this.addMouseListener(new MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

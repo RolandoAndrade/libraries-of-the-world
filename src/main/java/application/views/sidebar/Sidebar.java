@@ -1,16 +1,17 @@
-package application.views;
+package application.views.sidebar;
+
+import application.views.Frame;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 
 public class Sidebar extends JPanel {
     public Sidebar(){
         this.setLayout(null);
         this.setBackground(new Color(3, 169, 244));
-        this.setPreferredSize(new Dimension(Frame.FRAME_WIDTH/4, Frame.HEIGHT));
+        this.setPreferredSize(new Dimension(application.views.Frame.FRAME_WIDTH/4, Frame.HEIGHT));
         this.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 3, new Color(230, 230, 230)));
         drawLogo();
         this.add(new SidebarButton("\uf02d", "Buscar libros"));

@@ -26,6 +26,21 @@ public class FontAwesomeIcon {
         }
     }
 
+    public FontAwesomeIcon(String utfIcon, int size, Color color){
+        try {
+            InputStream  myStream = new BufferedInputStream(new FileInputStream("src/main/resources/public/fontawesome-webfont.ttf"));
+            Font ttfBase = Font.createFont(Font.TRUETYPE_FONT, myStream);
+            Font font = ttfBase.deriveFont(Font.PLAIN, size);
+            JLabel label = new JLabel(utfIcon);
+            label.setForeground(color);
+            label.setFont(font);
+            label.setSize(new Dimension(size,size));
+            icon = label;
+        } catch (IOException | FontFormatException exp) {
+            exp.printStackTrace();
+        }
+    }
+
     public JLabel getIcon() {
         return icon;
     }

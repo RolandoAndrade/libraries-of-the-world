@@ -1,6 +1,7 @@
 package application.views.booksfinder;
 
 import application.views.CustomButton;
+import application.views.CustomTextField;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -35,7 +36,7 @@ public class FindBooksForm extends JPanel {
         c.gridy = 0;
         c.gridwidth = 2;
         c.gridheight = 1;
-        this.form.add(new TextField(), c);
+        this.form.add(new CustomTextField(), c);
         c.gridx = 2;
         c.gridwidth = 1;
         this.form.add(new JComboBox<>(), c);

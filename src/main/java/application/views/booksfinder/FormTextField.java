@@ -10,8 +10,8 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 public class FormTextField extends JTextField {
-    public FormTextField(){
-        this.setBackground (Color.WHITE);
+    public FormTextField() {
+        this.setBackground(Color.WHITE);
         setForeground(MaterialColors.GRAY_300);
         Font font = GUITheme.DARK_THEME.getBold();
         setBorder(BorderFactory.createCompoundBorder(
@@ -36,6 +36,7 @@ public class FormTextField extends JTextField {
                             BorderFactory.createLineBorder(Color.WHITE, 10)));
                 }
             }
+
             @Override
             public void focusLost(FocusEvent e) {
                 if (getText().isEmpty()) {

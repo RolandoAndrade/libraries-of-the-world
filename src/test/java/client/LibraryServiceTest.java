@@ -9,9 +9,9 @@ import org.junit.Test;
 import shared.domain.components.Book;
 import shared.domain.database.DataRepository;
 import shared.domain.requests.CommandSet;
-import shared.infrastructure.common.ConsoleLogger;
 import shared.infrastructure.commands.LibraryACommandSet;
 import shared.infrastructure.commands.Z39Commands;
+import shared.infrastructure.common.ConsoleLogger;
 
 import java.util.ArrayList;
 import java.util.Arrays;

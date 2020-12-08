@@ -8,11 +8,11 @@ public interface DataRepository {
 
     /**
      * Get a book by title
-     * */
+     */
     Book getBook(String title) throws Exception;
 
     /**
      * Get a list of books of author
-     * */
+     */
     List<Book> getAuthor(String fullName) throws Exception;
 }

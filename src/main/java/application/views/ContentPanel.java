@@ -11,10 +11,10 @@ import java.awt.*;
 public class ContentPanel extends JPanel implements Subscriber {
     private CardLayout layout;
 
-    public ContentPanel(){
+    public ContentPanel() {
         this.layout = new CardLayout();
         this.setLayout(layout);
-        this.setBackground(new Color(250,250,250));
+        this.setBackground(new Color(250, 250, 250));
         this.add("Buscar libros", new FindBooksView());
         this.add("Ver logs", new LogsView());
         EventBus.subscribe(this);
@@ -22,7 +22,7 @@ public class ContentPanel extends JPanel implements Subscriber {
 
     @Override
     public void listen(String subject, Object message) {
-        if(subject.equals(EventBus.SECTION_CHANGED)){
+        if (subject.equals(EventBus.SECTION_CHANGED)) {
             String s = message.toString();
             this.layout.show(this, s);
         }

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SectionHeader extends JPanel {
-    public SectionHeader(String icon, String sectionTitle){
+    public SectionHeader(String icon, String sectionTitle) {
         this.add(new FontAwesomeIcon(icon, 30, Color.GRAY).getIcon());
         JLabel title = new JLabel("   " + sectionTitle);
 

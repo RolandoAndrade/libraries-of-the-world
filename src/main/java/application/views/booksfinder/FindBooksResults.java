@@ -14,7 +14,7 @@ public class FindBooksResults extends JPanel {
     private JPanel card;
     private JPanel resultsPanel;
 
-    public FindBooksResults(){
+    public FindBooksResults() {
         setLayout(new BorderLayout());
         JLabel label = new JLabel("RESULTADOS");
         Font font = GUITheme.LIGHT_THEME.getRegular();
@@ -24,7 +24,7 @@ public class FindBooksResults extends JPanel {
         label.setFont(font.deriveFont(attributes));
         label.setForeground(Color.GRAY);
         label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setBorder(new EmptyBorder(10,10,20,10));
+        label.setBorder(new EmptyBorder(10, 10, 20, 10));
         this.add(label, BorderLayout.NORTH);
         fillResults();
 
@@ -32,12 +32,12 @@ public class FindBooksResults extends JPanel {
         setPreferredSize(new Dimension(450, 175));
     }
 
-    private void setUpCard(){
+    private void setUpCard() {
 
     }
 
-    private void fillResults(){
-        this.card = new JPanel(new GridLayout(4,1));
+    private void fillResults() {
+        this.card = new JPanel(new GridLayout(4, 1));
         this.card.add(new BookCard(new Book("Hola"), 1));
         this.card.add(new BookCard(new Book("Hola"), 2));
         this.card.add(new BookCard(new Book("Hola"), 3));

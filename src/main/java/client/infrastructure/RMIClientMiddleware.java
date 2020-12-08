@@ -2,15 +2,12 @@ package client.infrastructure;
 
 import client.domain.ClientMiddleware;
 import server.domain.RemoteService;
-import shared.domain.components.Address;
 import shared.domain.components.Library;
 import shared.domain.logging.LoggerService;
 import shared.domain.requests.Command;
 import shared.domain.requests.InvalidCommandException;
 import shared.domain.requests.Response;
 
-import java.net.InetAddress;
-import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -26,7 +23,7 @@ public class RMIClientMiddleware implements ClientMiddleware {
 
     /**
      * Translates the Z39 response into Library Language
-     * */
+     */
     private Response translateResponse(Response response, Command returnCommand) throws InvalidCommandException {
         this.loggerService.log("translateResponse: translating " + response.getCommand(),
                 "RMIClientMiddleware", "");

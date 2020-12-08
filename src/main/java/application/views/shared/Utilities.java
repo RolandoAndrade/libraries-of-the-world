@@ -24,26 +24,23 @@ public class Utilities {
     public static final int NORMAL_MOVE = 0;
     public static final int CASTLE_MOVE = -1;
 
-    public static BufferedImage getImage (String fileName) {
+    public static BufferedImage getImage(String fileName) {
         try {
-            return ImageIO.read (Utilities.class.getResourceAsStream ("/resources/imgs/" + fileName));
-        }
-        catch (IOException e) {
-            System.out.println (fileName + " = null");
+            return ImageIO.read(Utilities.class.getResourceAsStream("/resources/imgs/" + fileName));
+        } catch (IOException e) {
+            System.out.println(fileName + " = null");
             return null;
         }
     }
 
-    public static Font getFont (String fileName) {
+    public static Font getFont(String fileName) {
         try {
-            return Font.createFont (Font.TRUETYPE_FONT, Utilities.class.getResourceAsStream ("/fonts/" + fileName)).deriveFont (14f);
-        }
-        catch (IOException e) {
-            System.out.println (fileName + " = null");
+            return Font.createFont(Font.TRUETYPE_FONT, Utilities.class.getResourceAsStream("/fonts/" + fileName)).deriveFont(14f);
+        } catch (IOException e) {
+            System.out.println(fileName + " = null");
             return null;
-        }
-        catch (FontFormatException e) {
-            System.out.println (fileName + " = null");
+        } catch (FontFormatException e) {
+            System.out.println(fileName + " = null");
             return null;
         }
     }

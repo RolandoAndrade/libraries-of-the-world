@@ -18,7 +18,7 @@ public class Address {
         return port;
     }
 
-    public String getHost(){
+    public String getHost() {
         return url;
     }
 

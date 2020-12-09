@@ -1,5 +1,6 @@
 package application;
 
+import application.infrastructure.GenericClient;
 import application.views.Frame;
 import application.views.shared.Utilities;
 import client.application.LibraryService;
@@ -34,6 +35,7 @@ public class Main {
 
         }
         LibraryConfiguration configuration = Utilities.getConfiguration();
+        GenericClient client = new GenericClient(new ConsoleLogger(), new LibraryACommandSet(new Z39Commands()), args);
         JFrame window = new Frame(configuration.getCurrentLibrary().getName());
 
     }

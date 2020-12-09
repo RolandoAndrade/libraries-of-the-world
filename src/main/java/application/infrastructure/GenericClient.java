@@ -7,14 +7,18 @@ import application.views.shared.Utilities;
 import client.application.LibraryService;
 import client.infrastructure.RMIClientMiddleware;
 import shared.domain.components.Address;
+import shared.domain.components.Book;
 import shared.domain.components.Library;
 import shared.domain.logging.LoggerService;
 import shared.domain.requests.CommandSet;
 import shared.infrastructure.common.FileRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GenericClient implements Subscriber {
-    private LibraryService libraryService;
-    private Library currentLibrary;
+    private final LibraryService libraryService;
+    private final Library currentLibrary;
 
     public GenericClient(LoggerService logger, CommandSet libraryCommandSet, String[] args){
         int port = 8080;
@@ -27,7 +31,7 @@ public class GenericClient implements Subscriber {
                 logger.info("repository not defined, using default library-template.xml", "GenericServer", "");
             }
         } else {
-            logger.info("port is not defined, using default 3000", "GenericClient", "");
+            logger.info("port is not defined, using default 8080", "GenericClient", "");
             logger.info("repository not defined, using default library-template.xml", "GenericClient", "");
         }
 
@@ -43,20 +47,24 @@ public class GenericClient implements Subscriber {
         try{
             if(subject.equals(EventBus.GET_BOOK)){
                 SearchRequest searchRequest = (SearchRequest) message;
+                Book book;
                 if(searchRequest.isSameLibrary(currentLibrary)){
-                    libraryService.getBook(searchRequest.getName());
+                    book = libraryService.getBook(searchRequest.getName());
                 }
                 else {
-                    libraryService.getBook(searchRequest.getName(), searchRequest.getLibrary());
+                    book = libraryService.getBook(searchRequest.getName(), searchRequest.getLibrary()).getBody();
                 }
+                EventBus.emit(EventBus.BOOK_RECEIVED, book);
             }
             else if(subject.equals(EventBus.GET_AUTHOR)){
                 SearchRequest searchRequest = (SearchRequest) message;
                 String name = searchRequest.getName().split(" ")[0];
                 String surname = searchRequest.getName().split(" ")[1];
+                List<Book> books = new ArrayList<>();
                 if(searchRequest.isSameLibrary(currentLibrary)){
-                    libraryService.getAuthor(name, surname);
+                    books = libraryService.getAuthor(name, surname);
                 }
+                EventBus.emit(EventBus.BOOKS_RECEIVED, books);
             }
         }catch (Exception e){
             e.printStackTrace();

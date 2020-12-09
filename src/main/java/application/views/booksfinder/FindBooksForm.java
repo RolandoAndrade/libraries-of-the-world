@@ -1,6 +1,7 @@
 package application.views.booksfinder;
 
 import application.domain.EventBus;
+import application.domain.SearchRequest;
 import application.domain.Subscriber;
 import application.views.shared.Utilities;
 import shared.domain.components.Library;
@@ -65,10 +66,24 @@ public class FindBooksForm extends JPanel implements Subscriber {
         this.form.add(new FormButton(EventBus.START_SEARCH_AUTHOR), c);
     }
 
+    private Library getSelectedLibrary(){
+        LibraryComboItem item =((LibraryComboItem)libraryJComboBox.getSelectedItem());
+        Library l;
+        if(item == null){
+            l = Utilities.getConfiguration().getCurrentLibrary();
+        }
+        else {
+            l = item.getValue();
+        }
+        return l;
+    }
+
     @Override
     public void listen(String subject, Object message) {
         if(subject.equals(EventBus.START_SEARCH_BOOK)){
-            System.out.println("Buscar: " + search.getText() + libraryJComboBox.getSelectedItem());
+            EventBus.emit(EventBus.GET_BOOK, new SearchRequest(search.getText(), getSelectedLibrary()));
+        }else if (subject.equals(EventBus.START_SEARCH_AUTHOR)){
+            EventBus.emit(EventBus.GET_AUTHOR, new SearchRequest(search.getText(), getSelectedLibrary()));
         }
     }
 }

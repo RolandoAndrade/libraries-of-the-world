@@ -6,7 +6,6 @@ import application.domain.Subscriber;
 import application.views.shared.Utilities;
 import client.application.LibraryService;
 import client.infrastructure.RMIClientMiddleware;
-import shared.domain.components.Address;
 import shared.domain.components.Book;
 import shared.domain.components.Library;
 import shared.domain.logging.LoggerService;
@@ -21,17 +20,10 @@ public class GenericClient implements Subscriber {
     private final Library currentLibrary;
 
     public GenericClient(LoggerService logger, CommandSet libraryCommandSet, String[] args){
-        int port = 8080;
         String filePath = "src/main/resources/templates/library-template.xml";
         if (args.length > 0) {
-            port = Math.max(Integer.parseInt(args[0]), 2000);
-            if (args.length > 1) {
-                filePath = args[1];
-            } else {
-                logger.info("repository not defined, using default library-template.xml", "GenericServer", "");
-            }
+            filePath = args[0];
         } else {
-            logger.info("port is not defined, using default 8080", "GenericClient", "");
             logger.info("repository not defined, using default library-template.xml", "GenericClient", "");
         }
 
@@ -40,6 +32,7 @@ public class GenericClient implements Subscriber {
                 new RMIClientMiddleware(currentLibrary, logger),
                 libraryCommandSet, logger);
         logger.log("started client ", "GenericClient", currentLibrary);
+        EventBus.subscribe(this);
     }
 
     @Override

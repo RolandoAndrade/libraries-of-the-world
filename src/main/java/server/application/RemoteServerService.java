@@ -90,12 +90,14 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
      * Listen request of the clients
      */
     public synchronized Response request(String command, String origin, String args) throws RemoteException, InterruptedException {
+        this.loggerService.log("request: request in progress from ", "RemoteServerService", origin);
         while (isRequestInProgress){
-            this.loggerService.info("request: there is a request in progress, please wait ", "RemoteServerService", origin);
-            wait();
+            this.loggerService.warn("request: there is a request in progress, please wait ", "RemoteServerService", origin);
+            wait(500);
         }
 
         isRequestInProgress = true;
+        wait(500);
         notifyAll();
 
         try {

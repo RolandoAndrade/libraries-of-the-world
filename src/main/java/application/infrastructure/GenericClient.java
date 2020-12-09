@@ -18,8 +18,10 @@ import java.util.List;
 public class GenericClient implements Subscriber {
     private final LibraryService libraryService;
     private final Library currentLibrary;
+    private final LoggerService logger;
 
     public GenericClient(LoggerService logger, CommandSet libraryCommandSet, String[] args){
+        this.logger = logger;
         String filePath = "src/main/resources/templates/library-template.xml";
         if (args.length > 0) {
             filePath = args[0];
@@ -60,7 +62,8 @@ public class GenericClient implements Subscriber {
                 EventBus.emit(EventBus.BOOKS_RECEIVED, books);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            logger.error(e.getMessage(), "GenericClient", "");
+            EventBus.emit(EventBus.BOOK_RECEIVED, null);
         }
 
     }

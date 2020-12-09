@@ -18,7 +18,9 @@ public class ConsoleLogger implements LoggerService {
     private static final String ANSI_WHITE = "\u001B[37m";
 
 
-    private String buildLog(String context, String type, String log, String data) {
+    private String buildLog(String context, String type, String log, String data) {   
+        FileLogger filelogger = new FileLogger();
+        filelogger.log(log+data);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
         String nowAsISO = df.format(new Date());
         return nowAsISO + "  [" + type + "]" + "  [" + context + "]  " + log + data;

@@ -15,7 +15,7 @@
         <year>1813</year>
         <price>70</price>
         <quantity>600</quantity>
-        <genre> Novelt</genre>
+        <genre>Novelt</genre>
         <author>
             <name>Jane</name>
             <surname>Austen</surname>
@@ -50,7 +50,7 @@
         <quantity>1500</quantity>
         <genre>Novel</genre>
         <author>
-            <name>Fiódor</name>
+            <name>Fiï¿½dor</name>
             <surname>Dostoyevski</surname>
         </author>
     </book>
@@ -75,7 +75,7 @@
             <name>Miguel</name>
             <surname>de Cervantes</surname>
         </author>
-    </book>    
+    </book>
     <book>
         <title>Madame Bovary</title>
         <year>1856</year>

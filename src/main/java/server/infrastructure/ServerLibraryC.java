@@ -12,8 +12,7 @@ public class ServerLibraryC {
             loggerService.log("Welcome to LibraryC server", "ServerLibraryC", "");
             GenericServer server = new GenericServer(loggerService,
                     new LibraryCCommandSet(new Z39Commands()), args);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

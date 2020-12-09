@@ -41,7 +41,7 @@ public class IPInterfaceManager implements IPManager {
     @Override
     public String getRoute(int port) throws SocketException {
         List<String> ips = listHosts();
-        return "rmi://"+ips.get(ips.size()-1)+":"+port+"/books";
+        return "rmi://" + ips.get(ips.size() - 1) + ":" + port + "/books";
     }
 
     @Override

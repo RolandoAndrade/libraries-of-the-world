@@ -1,12 +1,20 @@
 package application.views.booksfinder;
 
+import application.domain.EventBus;
+import application.domain.Subscriber;
+import application.views.shared.Utilities;
+import shared.domain.components.Library;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.util.List;
 
-public class FindBooksForm extends JPanel {
+public class FindBooksForm extends JPanel implements Subscriber {
     private JPanel card;
     private JPanel form;
+    private JComboBox<LibraryComboItem> libraryJComboBox;
+    private JTextField search;
 
     public FindBooksForm() {
         this.card = new JPanel(new BorderLayout());
@@ -22,6 +30,8 @@ public class FindBooksForm extends JPanel {
 
         this.card.add(form, BorderLayout.CENTER);
         this.add(card);
+
+        EventBus.subscribe(this);
     }
 
     private void addComponentsToForm() {
@@ -34,16 +44,31 @@ public class FindBooksForm extends JPanel {
         c.gridy = 0;
         c.gridwidth = 2;
         c.gridheight = 1;
-        this.form.add(new FormTextField(), c);
+        search = new FormTextField();
+        this.form.add(search, c);
+
         c.gridx = 2;
         c.gridwidth = 2;
-        this.form.add(new JComboBox<>(), c);
+        libraryJComboBox = new JComboBox<>();
+        List<Library> libraries = Utilities.getConfiguration().getLibraries();
+        for (Library l: libraries){
+            libraryJComboBox.addItem(new LibraryComboItem(l));
+        }
+
+        this.form.add(libraryJComboBox, c);
 
         c.gridx = 0;
         c.gridy = 1;
         c.gridwidth = 2;
-        this.form.add(new FormButton("Buscar libro"), c);
+        this.form.add(new FormButton(EventBus.START_SEARCH_BOOK), c);
         c.gridx = 2;
-        this.form.add(new FormButton("Buscar autor"), c);
+        this.form.add(new FormButton(EventBus.START_SEARCH_AUTHOR), c);
+    }
+
+    @Override
+    public void listen(String subject, Object message) {
+        if(subject.equals(EventBus.START_SEARCH_BOOK)){
+            System.out.println("Buscar: " + search.getText() + libraryJComboBox.getSelectedItem());
+        }
     }
 }

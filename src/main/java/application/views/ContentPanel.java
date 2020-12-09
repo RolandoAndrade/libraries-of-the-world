@@ -2,8 +2,8 @@ package application.views;
 
 import application.views.booksfinder.FindBooksView;
 import application.views.logs.LogsView;
-import application.views.shared.EventBus;
-import application.views.shared.Subscriber;
+import application.domain.EventBus;
+import application.domain.Subscriber;
 
 import javax.swing.*;
 import java.awt.*;

@@ -5,18 +5,11 @@ import application.views.shared.Utilities;
 import com.google.gson.Gson;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.utils.MaterialColors;
-import shared.domain.components.Library;
-import shared.domain.components.LibraryConfiguration;
 
 import javax.swing.*;
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        LibraryConfiguration configuration;
         try {
             UIManager.setLookAndFeel(new MaterialLookAndFeel());
             UIManager.put("Button[border].enable", false);

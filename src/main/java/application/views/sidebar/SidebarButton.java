@@ -1,7 +1,7 @@
 package application.views.sidebar;
 
 import application.views.Frame;
-import application.views.shared.EventBus;
+import application.domain.EventBus;
 import application.views.shared.FontAwesomeIcon;
 import application.views.shared.GUITheme;
 import mdlaf.animation.MaterialUIMovement;

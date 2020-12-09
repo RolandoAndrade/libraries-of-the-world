@@ -11,7 +11,7 @@ public class Frame extends JFrame {
 
     public static final int FRAME_WIDTH = 700;
 
-    private static final URL ICON_PATH = ClassLoader.getSystemResource("public/book-icon.png");
+    //private static final URL ICON_PATH = ClassLoader.getSystemResource("src/main/resources/public/book-icon.png");
 
     private JPanel mainPanel;
 
@@ -24,7 +24,7 @@ public class Frame extends JFrame {
         this.setTitle(libraryName);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Image icon = toolkit.getImage(ICON_PATH);
+        Image icon = toolkit.getImage("C:/sis_dis/libraries-of-the-world/src/main/resources/public/book-icon.png");
         this.setIconImage(icon);
         this.setResizable(false);
         this.mainPanel = new JPanel(new BorderLayout());

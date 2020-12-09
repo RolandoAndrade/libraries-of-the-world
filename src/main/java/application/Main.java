@@ -33,7 +33,7 @@ public class Main {
 
         }
         JFrame window = new Frame(Utilities.getConfiguration().getCurrentLibrary().getName());
-/*
+
         LibraryService libraryService = new LibraryService(new FileRepository("src/main/resources/templates/library-template.xml"),
                 new RMIClientMiddleware(new Library("Library A",
                         new Address("127.0.0.1", 3001)),
@@ -50,7 +50,7 @@ public class Main {
                 @Override
                 public void run() {
                     try {
-                        libraryService.getBook("Implementing Domain-driven Design", new Library("LibraryA", new Address("192.168.1.102", 3000)));
+                        libraryService.getAuthor("Harold","McGee", new Library("LibraryA", new Address("192.168.1.97", 3000)));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -59,7 +59,7 @@ public class Main {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
 

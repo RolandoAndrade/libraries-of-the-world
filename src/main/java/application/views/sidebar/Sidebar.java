@@ -21,8 +21,8 @@ public class Sidebar extends JPanel {
 
     private void drawLogo() {
         try {
-            BufferedImage image = ImageIO.read(ClassLoader.getSystemResource("public/ucab.png"));
-            JLabel imageLabel = new JLabel(new ImageIcon(image.getScaledInstance(100, 100, Image.SCALE_FAST)));
+            //BufferedImage image = ImageIO.read(ClassLoader.getSystemResource("public/ucab.png"));
+            JLabel imageLabel = new JLabel();
             imageLabel.setBounds(37, 37, 100, 100);
             this.add(imageLabel);
         } catch (Exception e) {

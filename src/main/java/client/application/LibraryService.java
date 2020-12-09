@@ -85,4 +85,23 @@ public class LibraryService {
         this.loggerService.info("getBook: book fetched from library " + library.getName() + ": ", "LibraryService", response);
         return response;
     }
+
+    /**
+     * CU-004 GET AUTHOR AT REMOTE LIBRARY USE CASE:
+     * Given a name of an author, system should search the its books and retrieve them.
+     * If there are no books with this author, should return an exception
+     */
+    public Response getAuthor(String name, String surname, Library library) throws Exception {
+        String fullName = name + " " + surname;
+        this.loggerService.log("getAuthor: getting books at library" + library.getName(), 
+                "LibraryService",commandSet.getAuthorCommand().getCommand() + " " + fullName);
+
+        Response response = this.clientMiddleware.request(commandSet.getAuthorCommand(), library, fullName, commandSet.returnAuthorCommand());
+        if (response.getBody() == null) {
+            throw new BookNotFoundException();
+        }
+
+        this.loggerService.info("getAuthor: author fetched from library" + library.getName() + " books ", "LibraryService", response);
+        return response;
+    }
 }

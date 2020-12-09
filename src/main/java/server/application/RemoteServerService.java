@@ -89,14 +89,14 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
     /**
      * Listen request of the clients
      */
-    public synchronized Response request(String command, String origin, String args) throws RemoteException {
-        /*while (isRequestInProgress){
-            this.loggerService.info("request: there is a request in progress, please wait", "RemoteServerService", "");
+    public synchronized Response request(String command, String origin, String args) throws RemoteException, InterruptedException {
+        while (isRequestInProgress){
+            this.loggerService.info("request: there is a request in progress, please wait ", "RemoteServerService", origin);
             wait();
         }
 
         isRequestInProgress = true;
-        notifyAll();*/
+        notifyAll();
 
         try {
             this.loggerService.log("request: " + command + " " + args + " from " + origin, "RemoteServerService", "");
@@ -105,10 +105,10 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
 
             this.loggerService.info("request: response to send -> ", "RemoteServerService", response);
 
-        /*
+
         isRequestInProgress = false;
         notifyAll();
-        */
+
             return response;
         } catch (Exception e) {
             throw new RemoteException(e.getMessage());

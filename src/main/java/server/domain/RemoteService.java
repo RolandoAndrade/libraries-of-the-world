@@ -7,5 +7,5 @@ import java.rmi.RemoteException;
 
 public interface RemoteService extends Remote, ServerService {
     @Override
-    Response request(String command, String origin, String args) throws RemoteException;
+    Response request(String command, String origin, String args) throws RemoteException, InterruptedException;
 }

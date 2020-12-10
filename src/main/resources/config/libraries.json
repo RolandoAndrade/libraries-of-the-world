@@ -2,30 +2,30 @@
   "currentLibrary": {
     "name": "Librería A",
     "address": {
-      "url": "192.168.1.97",
-      "port": 3000
+      "url": "192.168.9.81",
+      "port": 3050
     }
   },
   "libraries": [
     {
       "name": "Librería A",
       "address": {
-        "url": "192.168.1.97",
-        "port": 3000
+        "url": "192.168.9.81",
+        "port": 3050
       }
     },
     {
       "name": "Librería B",
       "address": {
-        "url": "192.168.1.136",
-        "port": 3001
+        "url": "192.168.9.81",
+        "port": 3000
       }
     },
     {
       "name": "Librería C",
       "address": {
-        "url": "192.168.1.97",
-        "port": 3002
+        "url": "192.168.9.81",
+        "port": 4001
       }
     }
   ]

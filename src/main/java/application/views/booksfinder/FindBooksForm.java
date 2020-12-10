@@ -50,7 +50,7 @@ public class FindBooksForm extends JPanel implements Subscriber {
 
         c.gridx = 2;
         c.gridwidth = 2;
-        libraryJComboBox = new JComboBox<>();
+        libraryJComboBox = new JComboBox();
         List<Library> libraries = Utilities.getConfiguration().getLibraries();
         for (Library l: libraries){
             libraryJComboBox.addItem(new LibraryComboItem(l));

@@ -24,7 +24,7 @@ public class Frame extends JFrame {
         this.setTitle(libraryName);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Image icon = toolkit.getImage("C:/sis_dis/libraries-of-the-world/src/main/resources/public/book-icon.png");
+        Image icon = toolkit.getImage("/public/book-icon.png");
         this.setIconImage(icon);
         this.setResizable(false);
         this.mainPanel = new JPanel(new BorderLayout());

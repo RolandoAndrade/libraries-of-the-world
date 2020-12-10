@@ -32,7 +32,7 @@ public class Utilities {
 
     public static BufferedImage getImage(String fileName) {
         try {
-            return ImageIO.read(Utilities.class.getResourceAsStream("../../../../resources/imgs/" + fileName));
+            return ImageIO.read(Utilities.class.getResourceAsStream("/public/" + fileName));
         } catch (IOException e) {
             System.out.println(fileName + " = null");
             return null;
@@ -41,7 +41,7 @@ public class Utilities {
 
     public static Font getFont(String fileName) {
         try {
-            return Font.createFont(Font.TRUETYPE_FONT, Utilities.class.getResourceAsStream("C:/sis_dis/libraries-of-the-world/src/main/resources/fonts/" + fileName)).deriveFont(14f);
+            return Font.createFont(Font.TRUETYPE_FONT, Utilities.class.getResourceAsStream("/fonts/" + fileName)).deriveFont(14f);
         } catch (IOException e) {
             System.out.println(fileName + " = null");
             return null;

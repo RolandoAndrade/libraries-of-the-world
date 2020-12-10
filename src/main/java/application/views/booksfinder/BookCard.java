@@ -28,7 +28,7 @@ public class BookCard extends JPanel {
         this.card.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230), 1, true));
         this.setIconPanel(index);
         this.setBookPanel(book.getTitle());
-        this.setAuthorPanel(book.getTitle());
+        this.setAuthorPanel(book.getAuthor().getFullName());
         this.add(card, BorderLayout.CENTER);
 
         addMouseListener(MaterialUIMovement.getMovement(card, MaterialColors.GRAY_100));

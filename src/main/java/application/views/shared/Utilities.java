@@ -57,12 +57,12 @@ public class Utilities {
         Reader reader = null;
         LibraryConfiguration configuration = null;
         try {
-            reader = Files.newBufferedReader(Paths.get("src/main/resources/config/libraries.json"));
+            reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource("config/libraries.json").toURI()));
 
             configuration = gson.fromJson(reader,LibraryConfiguration.class);
 
             reader.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

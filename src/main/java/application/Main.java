@@ -1,5 +1,6 @@
 package application;
 
+import application.infrastructure.GenericClient;
 import application.views.Frame;
 import application.views.shared.Utilities;
 import client.application.LibraryService;
@@ -9,6 +10,7 @@ import mdlaf.MaterialLookAndFeel;
 import mdlaf.utils.MaterialColors;
 import shared.domain.components.Address;
 import shared.domain.components.Library;
+import shared.domain.components.LibraryConfiguration;
 import shared.infrastructure.commands.LibraryACommandSet;
 import shared.infrastructure.commands.Z39Commands;
 import shared.infrastructure.common.ConsoleLogger;

@@ -91,25 +91,37 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
      */
     public synchronized Response request(String command, String origin, String args) throws RemoteException, InterruptedException {
         this.loggerService.log("request: request in progress from ", "RemoteServerService", origin);
+
+        //Checks if request is in progress
         while (isRequestInProgress){
             this.loggerService.warn("request: there is a request in progress, please wait ", "RemoteServerService", origin);
+            //Thread will wait a half of second
             wait(500);
         }
 
+        //Set resource as blocked
         isRequestInProgress = true;
+
+        //This line is not necessary, this makes the system waits a half of second, an it is used for demonstration of mutex
         wait(500);
+
+        //Notifies to all threads that the resource flag is blocked
         notifyAll();
+
 
         try {
             this.loggerService.log("request: " + command + " " + args + " from " + origin, "RemoteServerService", "");
 
+            //Use the resource
             Response response = makeRequest(command, args);
 
             this.loggerService.info("request: response to send -> ", "RemoteServerService", response);
 
+            //Set resource as free
+            isRequestInProgress = false;
 
-        isRequestInProgress = false;
-        notifyAll();
+            //Notifies to all thread that the resource was freed
+            notifyAll();
 
             return response;
         } catch (Exception e) {

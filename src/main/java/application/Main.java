@@ -3,25 +3,16 @@ package application;
 import application.infrastructure.GenericClient;
 import application.views.Frame;
 import application.views.shared.Utilities;
-import client.application.LibraryService;
-import client.infrastructure.RMIClientMiddleware;
-import com.google.gson.Gson;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.utils.MaterialColors;
-import shared.domain.components.Address;
-import shared.domain.components.Library;
 import shared.domain.components.LibraryConfiguration;
+import shared.domain.requests.CommandSet;
 import shared.infrastructure.commands.LibraryACommandSet;
+import shared.infrastructure.commands.LibraryBCommandSet;
+import shared.infrastructure.commands.LibraryCCommandSet;
 import shared.infrastructure.commands.Z39Commands;
 import shared.infrastructure.common.ConsoleLogger;
-import shared.infrastructure.common.FileRepository;
 import javax.swing.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
-
 
 public class Main {
     public static void main(String[] args) {
@@ -34,35 +25,18 @@ public class Main {
         } catch (Exception e) {
 
         }
-        JFrame window = new Frame(Utilities.getConfiguration().getCurrentLibrary().getName());
-
-        LibraryService libraryService = new LibraryService(new FileRepository("src/main/resources/templates/library-template.xml"),
-                new RMIClientMiddleware(new Library("Library A",
-                        new Address("127.0.0.1", 3001)),
-                        new ConsoleLogger()), new LibraryACommandSet(new Z39Commands()), new ConsoleLogger());
-        try {
-            DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = dateFormatter .parse("2020-12-08 21:05:30");
-
-            //Now create the time and schedule it
-            Timer timer = new Timer();
-
-            //Use this if you want to execute it once
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    try {
-                        libraryService.getAuthor("Harold","McGee", new Library("LibraryA", new Address("192.168.1.97", 3000)));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }, date);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        LibraryConfiguration configuration = Utilities.getConfiguration();
+        GenericClient client = new GenericClient(new ConsoleLogger(), getCommandSet(configuration.getCurrentLibrary().getName()), args);
+        JFrame window = new Frame(configuration.getCurrentLibrary().getName());
     }
 
+
+    private static CommandSet getCommandSet(String library){
+        switch (library){
+            case "Librería A": return new LibraryACommandSet(new Z39Commands());
+            case "Librería B": return new LibraryBCommandSet(new Z39Commands());
+            default: return new LibraryCCommandSet(new Z39Commands());
+        }
+    }
 
 }

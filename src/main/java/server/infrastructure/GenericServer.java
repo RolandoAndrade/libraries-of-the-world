@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class GenericServer {
     public GenericServer(LoggerService logger, CommandSet libraryCommandSet, String[] args) throws Exception {
         int port = 3000;
-        String filePath = "src/main/resources/templates/library-template.xml";
+        String filePath = "templates/library-template.xml";
         if (args.length > 0) {
             port = Math.max(Integer.parseInt(args[0]), 2000);
             if (args.length > 1) {
@@ -37,7 +37,7 @@ public class GenericServer {
 
         String route = ipManager.getRoute(port);
         System.setProperty("java.rmi.server.hostname", hosts.get(selectedInterface));
-        RemoteServerService remoteServerService = new RemoteServerService(new FileRepository(filePath),
+        RemoteServerService remoteServerService = new RemoteServerService(new FileRepository(ClassLoader.getSystemResource(filePath).getPath()),
                 libraryCommandSet, logger);
         Registry registry = LocateRegistry.createRegistry(port);
         logger.log("started server at ", "GenericServer", route);

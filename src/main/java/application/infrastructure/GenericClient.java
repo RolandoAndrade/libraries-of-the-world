@@ -22,7 +22,7 @@ public class GenericClient implements Subscriber {
 
     public GenericClient(LoggerService logger, CommandSet libraryCommandSet, String[] args){
         this.logger = logger;
-        String filePath = "src/main/resources/templates/library-template.xml";
+        String filePath = "templates/library-template.xml";
         if (args.length > 0) {
             filePath = args[0];
         } else {
@@ -30,7 +30,7 @@ public class GenericClient implements Subscriber {
         }
 
         currentLibrary = Utilities.getConfiguration().getCurrentLibrary();
-        libraryService = new LibraryService(new FileRepository(filePath),
+        libraryService = new LibraryService(new FileRepository(ClassLoader.getSystemResource(filePath).getPath()),
                 new RMIClientMiddleware(currentLibrary, logger),
                 libraryCommandSet, logger);
         logger.log("started client ", "GenericClient", currentLibrary);

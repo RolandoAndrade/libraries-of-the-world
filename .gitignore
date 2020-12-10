@@ -2,3 +2,6 @@
 nbactions.xml
 /lib/
 /**/*.class
+.classpath
+.project
+.settings

@@ -12,6 +12,9 @@ import shared.infrastructure.commands.LibraryBCommandSet;
 import shared.infrastructure.commands.LibraryCCommandSet;
 import shared.infrastructure.commands.Z39Commands;
 import shared.infrastructure.common.ConsoleLogger;
+import shared.infrastructure.common.DualLogger;
+import shared.infrastructure.common.FileLogger;
+
 import javax.swing.*;
 
 public class Main {
@@ -26,7 +29,7 @@ public class Main {
 
         }
         LibraryConfiguration configuration = Utilities.getConfiguration();
-        GenericClient client = new GenericClient(new ConsoleLogger(), getCommandSet(configuration.getCurrentLibrary().getName()), args);
+        GenericClient client = new GenericClient(new DualLogger(), getCommandSet(configuration.getCurrentLibrary().getName()), args);
         JFrame window = new Frame(configuration.getCurrentLibrary().getName());
     }
 

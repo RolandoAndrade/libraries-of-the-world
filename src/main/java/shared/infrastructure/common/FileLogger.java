@@ -1,45 +1,58 @@
 package shared.infrastructure.common;
 
-import java.io.File;  // Import the File class
-import java.io.IOException;  // Import the IOException class to handle errors
-import java.io.FileWriter;   // Import the FileWriter class
+import shared.domain.logging.LoggerService;
 
-public class FileLogger {
-  
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    
-      public  void log(String log ) {
-        //crear archivo
+public class FileLogger implements LoggerService {
+
+    public FileLogger(){
         try {
-          File myObj = new File("src\\main\\java\\application\\log.txt");
-          if (myObj.createNewFile()) {
-            System.out.println("File created: " + myObj.getName());
-          } else {
-            System.out.println("File already exists.");
-          }
+            File myObj = new File("log.txt");
+            myObj.createNewFile();
         } catch (IOException e) {
-          System.out.println("An error occurred.");
-          e.printStackTrace();
-        }
-    //escribir en archivo
-        try {
-            FileWriter myWriter = new FileWriter("src\\main\\java\\application\\log.txt");
-            myWriter.write(log);
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-          } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-          }
-      
-   
-   
         }
     }
-      
-        
 
-      //crear carpeta de logs(si no existe)
-      //crear archivo log(es el que recibe el string de console log) al crearlo le ponemos de nombrela fecha
-      //crear el archivo en java, escribir el contenido y cerrar archivo
-      //
+    private String buildLog(String context, String type, String log, String data) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+        String nowAsISO = df.format(new Date());
+        return nowAsISO + "  [" + type + "]" + "  [" + context + "]  " + log + data;
+    }
+
+    private void writeLog(String log){
+        try(FileWriter fw = new FileWriter("log.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            out.println(log);
+        } catch (IOException e) {
+
+        }
+    }
+
+    @Override
+    public void info(String log, String context, Object data) {
+        writeLog(this.buildLog(context, "INFO", log, data.toString()));
+    }
+
+    @Override
+    public void log(String log, String context, Object data) {
+        writeLog(this.buildLog(context, "LOG", log, data.toString()));
+    }
+
+    @Override
+    public void warn(String log, String context, Object data) {
+        writeLog(this.buildLog(context, "WARN", log, data.toString()));
+    }
+
+    @Override
+    public void error(String log, String context, Object data) {
+        writeLog(this.buildLog(context, "ERROR", log, data.toString()));
+    }
+}

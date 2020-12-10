@@ -59,6 +59,9 @@ public class GenericClient implements Subscriber {
                 if(searchRequest.isSameLibrary(currentLibrary)){
                     books = libraryService.getAuthor(name, surname);
                 }
+                else {
+                    books = libraryService.getAuthor(name, surname, searchRequest.getLibrary()).getBody();
+                }
                 EventBus.emit(EventBus.BOOKS_RECEIVED, books);
             }
         }catch (Exception e){

@@ -8,7 +8,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.Reader;
+import java.net.URI;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Utilities {
@@ -57,7 +59,7 @@ public class Utilities {
         Reader reader = null;
         LibraryConfiguration configuration = null;
         try {
-            reader = Files.newBufferedReader(Paths.get(ClassLoader.getSystemResource("config/libraries.json").toURI()));
+            reader = Files.newBufferedReader(Paths.get("libraries.json"));
 
             configuration = gson.fromJson(reader,LibraryConfiguration.class);
 

@@ -35,7 +35,7 @@ public class FindBooksResults extends JPanel implements Subscriber {
         fillResults();
 
 
-        setPreferredSize(new Dimension(450, 175));
+        setPreferredSize(new Dimension(450, 200));
 
         EventBus.subscribe(this);
     }

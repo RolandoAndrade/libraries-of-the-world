@@ -35,7 +35,7 @@ public class GenericServer {
         }
 
 
-        String route = ipManager.getRoute(port);
+        String route = "rmi://" + hosts.get(selectedInterface) + ":" + port + "/books";
         System.setProperty("java.rmi.server.hostname", hosts.get(selectedInterface));
         RemoteServerService remoteServerService = new RemoteServerService(new FileRepository(filePath),
                 libraryCommandSet, logger);

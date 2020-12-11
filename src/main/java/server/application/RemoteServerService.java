@@ -102,12 +102,11 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
         //Set resource as blocked
         isRequestInProgress = true;
 
-        //This line is not necessary, this makes the system waits a half of second, an it is used for demonstration of mutex
-        wait(500);
-
         //Notifies to all threads that the resource flag is blocked
         notifyAll();
 
+        //This line is not necessary, this makes the system waits a half of second, an it is used for demonstration of mutex
+        wait(500);
 
         try {
             this.loggerService.log("request: " + command + " " + args + " from " + origin, "RemoteServerService", "");
@@ -125,6 +124,12 @@ public class RemoteServerService extends UnicastRemoteObject implements RemoteSe
 
             return response;
         } catch (Exception e) {
+            //Set resource as free
+            isRequestInProgress = false;
+
+            //Notifies to all thread that the resource was freed
+            notifyAll();
+
             throw new RemoteException(e.getMessage());
         }
 
